@@ -1,3 +1,4 @@
+import { gerbilFont } from "@/components/utils/font";
 import "./globals.css";
 import { Metadata } from "next";
 
@@ -13,8 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${gerbilFont.className} bg-[#040309]`}>{children}</body>
     </html>
   );
 }
-
