@@ -3,3 +3,7 @@ export const gerbilFont = localFont({
     src: "../../public/fonts/gerbil.otf",
     weight: "700"
 })
+export const satoshiFont = localFont({
+    src: "../../public/fonts/Satoshi-Variable.ttf",
+   
+})
