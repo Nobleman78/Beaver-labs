@@ -98,20 +98,20 @@ export function MarqueeDemo() {
                 <h2>What people are saying</h2>
                 <p>Here what people are saying about us.</p>
             </div>
-            <Marquee pauseOnHover className="[--duration:20s]">
-                {firstRow.map((review) => (
-                    <ReviewCard key={review.username} {...review} />
-                ))}
-            </Marquee>
 
-            <Marquee reverse pauseOnHover className="[--duration:20s]">
-                {secondRow.map((review) => (
-                    <ReviewCard key={review.username} {...review} />
-                ))}
-            </Marquee>
+            <div className="relative flex w-full flex-col items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+                <Marquee pauseOnHover className="[--duration:20s]">
+                    {firstRow.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
 
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-background"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-background"></div>
+                <Marquee reverse pauseOnHover className="[--duration:20s]">
+                    {secondRow.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
+            </div>
         </div>
     );
 }
