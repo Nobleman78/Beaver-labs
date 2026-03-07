@@ -48,7 +48,7 @@ const fadeUp = (delay = 0) => ({
 
 const About = () => {
     return (
-        <div className="min-h-screen bg-[#1E1E1E]">
+        <div className="min-h-screen bg-[#1E1E1E] overflow-x-hidden">
             {/*  */}
             {/* ── Hero ── */}
             <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pt-36 pb-20 text-center">
