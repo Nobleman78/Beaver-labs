@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const reviews = [
     {
@@ -93,11 +96,17 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
 // Main Demo Component
 export function MarqueeDemo() {
     return (
-        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-20">
-            <div className="text-white text-center mb-10">
-                <h2>What people are saying</h2>
-                <p>Here what people are saying about us.</p>
-            </div>
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-16 md:py-24">
+            <motion.div
+                className="text-center mb-12 md:mb-16 max-w-2xl mx-auto px-4"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true, amount: 0.3 }}
+            >
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">What people are saying</h2>
+                <p className="text-gray-400 text-base md:text-lg">Here what people are saying about us.</p>
+            </motion.div>
 
             <div className="relative flex w-full flex-col items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
                 <Marquee pauseOnHover className="[--duration:20s]">

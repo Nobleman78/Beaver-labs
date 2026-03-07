@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import {
     Accordion,
     AccordionContent,
@@ -43,11 +46,17 @@ export function AccordionDemo() {
 // This is your main Testimonials page/section
 const FAQ = () => {
     return (
-        <div className="p-8">
-            <h2 className="text-2xl font-bold mb-4 text-white text-center">Frequently Asked Questions</h2>
+        <motion.div
+            className="py-16 md:py-24 px-6 md:px-12 lg:px-24"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.2 }}
+        >
+            <h2 className="text-4xl md:text-5xl font-bold mb-10 md:mb-16 text-white text-center tracking-tight">Frequently Asked Questions</h2>
             {/* We call the AccordionDemo component here */}
             <AccordionDemo />
-        </div>
+        </motion.div>
     );
 };
 

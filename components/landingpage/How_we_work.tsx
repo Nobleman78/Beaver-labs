@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const workingPrinciple = [
     {
@@ -46,28 +49,38 @@ const workingPrinciple = [
 
 const How_we_work = () => {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-16 md:py-24 relative overflow-hidden">
             {/* Ambient background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full max-w-7xl">
-                <div className="text-center mb-16 lg:mb-20 max-w-2xl mx-auto">
+                <motion.div
+                    className="text-center mb-16 lg:mb-20 max-w-2xl mx-auto"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, ease: 'easeOut' }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
                         How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Work</span>
                     </h2>
                     <p className="text-gray-400 text-lg">
                         From concept to launch — a simple, transparent, and efficient process to bring your ideas to life.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
                     {/* Connecting dashed line for desktop */}
                     <div className="hidden lg:block absolute top-[50px] left-[12%] right-[12%] h-[2px] border-t-2 border-dashed border-gray-700/50 -z-10" />
 
                     {workingPrinciple.map((item, index) => (
-                        <div
+                        <motion.div
                             key={index}
                             className="group relative bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/50 rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.1)] hover:-translate-y-2 flex flex-col"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.15, ease: 'easeOut' }}
+                            viewport={{ once: true, amount: 0.2 }}
                         >
                             <div className="absolute top-6 right-8 text-7xl font-black text-white/[0.03] group-hover:text-white/[0.08] transition-colors duration-500 pointer-events-none">
                                 {item.step}
@@ -102,7 +115,7 @@ const How_we_work = () => {
 
                             {/* Hover gradient overlay */}
                             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
