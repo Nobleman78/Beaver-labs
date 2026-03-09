@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const stats = [
-    { value: '50+', label: 'Projects Delivered' },
+    { value: '10+', label: 'Projects Delivered' },
     { value: '30+', label: 'Happy Clients' },
-    { value: '5+', label: 'Years of Experience' },
-    { value: '10+', label: 'Team Members' },
+    { value: '3+', label: 'Years of Experience' },
+    { value: '5', label: 'Team Members' },
 ];
 
 const values = [
@@ -35,10 +35,11 @@ const values = [
 ];
 
 const team = [
-    { name: 'Alex Johnson', role: 'Founder & CEO', gradient: 'from-purple-500 to-blue-500', initials: 'AJ' },
-    { name: 'Sarah Chen', role: 'Lead Designer', gradient: 'from-pink-500 to-orange-400', initials: 'SC' },
-    { name: 'Marcus Lee', role: 'Senior Engineer', gradient: 'from-green-400 to-cyan-500', initials: 'ML' },
-    { name: 'Priya Patel', role: 'Product Manager', gradient: 'from-yellow-400 to-red-500', initials: 'PP' },
+    { name: 'Susnat Chakma', role: 'Founder & CEO', gradient: 'from-purple-500 to-blue-500', initials: 'SC' },
+    { name: 'Sumed Tanchangya', role: 'UI.UX Designer', gradient: 'from-pink-500 to-orange-400', initials: 'ST' },
+    { name: 'Ala Pottra Chakma', role: 'Senior Engineer', gradient: 'from-green-400 to-cyan-500', initials: 'AC' },
+    { name: 'Jasmin Chakma', role: 'Junior Software Developer', gradient: 'from-yellow-400 to-red-500', initials: 'JC' },
+    { name: 'Noble Chakma', role: 'Junior Software Developer', gradient: 'from-yellow-400 to-red-500', initials: 'NC' },
 ];
 
 const fadeUp = (delay = 0) => ({
