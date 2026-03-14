@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { gerbilFont, satoshiFont } from '@/components/utils/font';
 import saas from "../../public/images/services/saas.png";
 import webapp from "../../public/images/services/webappication.jpg";
 import mobile from "../../public/images/services/mobileapp.avif";
@@ -63,7 +64,7 @@ const fadeRight = {
 
 const Service = () => {
     return (
-        <div className="min-h-screen bg-[#1E1E1E] overflow-x-hidden">
+        <div className="min-h-screen bg-white overflow-x-hidden">
 
             {/* Hero */}
             <section className="max-w-7xl mx-auto  px-6 md:px-10 xl:px-0 pt-36 pb-20 text-center">
@@ -72,12 +73,12 @@ const Service = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
+                    <h1 className={`${gerbilFont.className} text-4xl md:text-5xl lg:text-7xl font-bold text-zinc-900 tracking-tight leading-[1.1] mb-8`}>
                         Solutions Tailored<br className="hidden md:block" /> for the Next Gen
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                        We are a team of strategists, designers built with React, Typescript, Tailwind CSS,
-                        and Node.js when you refuse to play things safe.
+                    <p className={`text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${satoshiFont.className}`}>
+                        We are a team of strategists and designers obsessed with craft, building
+                        high-performance digital products for the ambitious.
                     </p>
                 </motion.div>
             </section>
@@ -99,15 +100,15 @@ const Service = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
                             >
-                                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
+                                <h2 className={`${gerbilFont.className} text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 mb-8 tracking-tight leading-[1.1]`}>
                                     {service.title}
                                 </h2>
-                                <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8">
+                                <p className={`text-zinc-500 text-lg lg:text-xl leading-relaxed mb-10 ${satoshiFont.className}`}>
                                     {service.description}
                                 </p>
-                                <button className="inline-flex items-center gap-2 bg-[#7370FF] hover:bg-[#625df5] text-white font-semibold px-7 py-3.5 rounded-full transition-colors duration-200 shadow-[0_0_24px_rgba(115,112,255,0.25)]">
+                                <button className="inline-flex items-center gap-3 bg-gradient-to-r from-[#7370FF] to-[#9C99FF] hover:scale-105 active:scale-95 text-white font-bold px-9 py-4 rounded-full transition-all duration-300 shadow-xl shadow-[#7370FF]/25">
                                     Learn More
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M7 17L17 7M17 7H7M17 7v10" />
                                     </svg>
                                 </button>
@@ -121,15 +122,15 @@ const Service = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
                             >
-                                <div className="relative w-full h-[280px] sm:h-[340px] md:h-[380px] lg:h-[420px] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(115,112,255,0.1)] group">
+                                <div className="relative w-full h-[300px] sm:h-[360px] md:h-[400px] lg:h-[480px] rounded-[3rem] overflow-hidden border border-zinc-200 shadow-2xl shadow-[#7370FF]/5 group">
                                     <Image
                                         src={service.image}
                                         alt={service.imageAlt}
                                         fill
-                                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                                        className="object-cover object-center transition-transform duration-1000 group-hover:scale-110"
                                     />
                                     {/* Subtle purple overlay on hover */}
-                                    <div className="absolute inset-0 bg-[#7370FF]/0 group-hover:bg-[#7370FF]/10 transition-colors duration-500 rounded-3xl" />
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[#7370FF]/0 via-transparent to-black/20 group-hover:from-[#7370FF]/10 transition-all duration-700" />
                                 </div>
                             </motion.div>
                         </div>

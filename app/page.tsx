@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="pt-20">
       <Hero />
-      <Videos />
+      {/* <Videos /> */}
       <How_we_work />
       <What_we_do_best />
       <MarqueeDemo />

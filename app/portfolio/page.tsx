@@ -9,6 +9,7 @@ import imageThree from '../../public/images/whatwedobest/three.png';
 import imageFour from '../../public/images/whatwedobest/four.png';
 import imageFive from '../../public/images/whatwedobest/five.png';
 import videoThumb from '../../public/images/videos/videoOne.png';
+import { gerbilFont, satoshiFont } from '@/components/utils/font';
 
 const allProjects = [
     {
@@ -99,8 +100,8 @@ const Portfolio = () => {
     const hasMore = visible < allProjects.length;
 
     return (
-        <div className="min-h-screen bg-[#1E1E1E]">
-            <main className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pt-32 pb-24">
+        <div className="min-h-screen ">
+            <main className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pt-40 pb-24">
 
                 {/* Page Header */}
                 <motion.div
@@ -109,10 +110,10 @@ const Portfolio = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+                    <h1 className={`${gerbilFont.className} text-4xl md:text-5xl lg:text-7xl font-bold text-zinc-900 tracking-tight leading-[1.1] mb-8`}>
                         Our Portfolio
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    <p className={`text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${satoshiFont.className}`}>
                         A curated showcase of projects we have crafted — from SaaS platforms to mobile apps,
                         AI tools, and beautiful UI/UX systems.
                     </p>
@@ -129,7 +130,7 @@ const Portfolio = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 20 }}
                                 transition={{ duration: 0.5, delay: index < INITIAL_COUNT ? index * 0.08 : 0 }}
-                                className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-[#7370FF]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(115,112,255,0.1)] cursor-pointer"
+                                className="group bg-white border border-zinc-200 rounded-[2rem] overflow-hidden hover:border-[#7370FF]/40 transition-all duration-700 hover:shadow-2xl hover:shadow-[#7370FF]/5 hover:-translate-y-2 cursor-pointer"
                             >
                                 {/* Image */}
                                 <div className="relative w-full h-[240px] sm:h-[280px] md:h-[300px] overflow-hidden">
@@ -140,17 +141,17 @@ const Portfolio = () => {
                                         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                                     />
                                     {/* Tag badge */}
-                                    <span className={`absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm ${project.tagColor}`}>
+                                    <span className={`absolute top-6 left-6 text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-md border border-white/20 shadow-xl ${project.tagColor.replace('/20', '/40')}`}>
                                         {project.tag}
                                     </span>
                                 </div>
 
                                 {/* Card Footer */}
-                                <div className="p-6 md:p-8">
-                                    <h3 className="text-white text-xl md:text-2xl font-bold mb-2 group-hover:text-[#9C99FF] transition-colors duration-300">
+                                <div className="p-8 md:p-10">
+                                    <h3 className={`${gerbilFont.className} text-zinc-900 text-2xl md:text-3xl font-bold mb-3 group-hover:text-[#7370FF] transition-colors duration-500`}>
                                         {project.name}
                                     </h3>
-                                    <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                                    <p className={`text-zinc-500 text-base leading-relaxed ${satoshiFont.className}`}>
                                         {project.description}
                                     </p>
                                 </div>
@@ -169,9 +170,9 @@ const Portfolio = () => {
                     >
                         <button
                             onClick={handleLoadMore}
-                            className="px-10 py-4 rounded-full bg-[#7370FF] text-white font-semibold text-base hover:bg-[#625df5] active:scale-95 transition-all duration-200 shadow-[0_0_30px_rgba(115,112,255,0.3)]"
+                            className="px-12 py-5 rounded-full bg-gradient-to-r from-[#7370FF] to-[#9C99FF] text-white font-bold text-lg hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_20px_40px_rgba(115,112,255,0.3)]"
                         >
-                            Load More Projects
+                            Explore More Projects
                         </button>
                     </motion.div>
                 )}

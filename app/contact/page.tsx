@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { IoMail, IoCall, IoLocation, IoLogoLinkedin, IoLogoTwitter, IoLogoInstagram, IoArrowForward } from "react-icons/io5";
-import { gerbilFont } from "@/components/utils/font";
+import { gerbilFont, satoshiFont } from "@/components/utils/font";
 import Swal from 'sweetalert2';
 
 const Contact = () => {
@@ -25,8 +25,8 @@ const Contact = () => {
                 title: 'Missing Information',
                 text: 'Please fill in all fields before sending your message.',
                 icon: 'warning',
-                background: '#040309',
-                color: '#fff',
+                background: '#ffffff',
+                color: '#18181b',
                 confirmButtonColor: '#7370FF'
             });
             return;
@@ -36,19 +36,19 @@ const Contact = () => {
             title: 'Success!',
             text: 'Your message has been sent successfully.',
             icon: 'success',
-            background: '#040309',
-            color: '#fff',
+            background: '#ffffff',
+            color: '#18181b',
             confirmButtonColor: '#7370FF'
         });
     };
 
     return (
-        <div className="min-h-screen bg-[#1E1E1E] pt-32 pb-20 px-6 md:px-10">
+        <div className="min-h-screen bg-white pt-32 pb-20 px-6 md:px-10">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
                 <div className="text-center mb-16 md:mb-24">
                     <motion.h1
-                        className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-6`}
+                        className={`${gerbilFont.className} text-4xl md:text-5xl lg:text-7xl font-bold text-zinc-900 tracking-tight leading-[1.1] mb-8`}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -56,7 +56,7 @@ const Contact = () => {
                         Get in Touch
                     </motion.h1>
                     <motion.p
-                        className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto"
+                        className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
@@ -74,43 +74,43 @@ const Contact = () => {
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
                         <div className="space-y-8">
-                            <h2 className={`${gerbilFont.className} text-white text-3xl mb-8`}>Contact Information</h2>
+                            <h2 className={`${gerbilFont.className} text-zinc-900 text-3xl mb-8`}>Contact Information</h2>
 
-                            <div className="flex items-start gap-5 group">
-                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-[#7370FF]/20 group-hover:border-[#7370FF]/50 transition-all duration-300">
-                                    <IoMail className="text-[#9C99FF] w-6 h-6" />
+                            <div className="flex items-start gap-6 group">
+                                <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200 group-hover:bg-[#7370FF]/10 group-hover:border-[#7370FF]/30 transition-all duration-500 shadow-sm group-hover:shadow-lg">
+                                    <IoMail className="text-[#7370FF] w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-gray-400 text-sm mb-1 uppercase tracking-widest">Email us</p>
-                                    <p className="text-white text-xl font-medium">hello@beaverlabs.com</p>
+                                    <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-1">Email us</p>
+                                    <p className="text-zinc-900 text-xl font-bold">hello@breaverlabs.com</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-5 group">
-                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-[#7370FF]/20 group-hover:border-[#7370FF]/50 transition-all duration-300">
-                                    <IoCall className="text-[#9C99FF] w-6 h-6" />
+                            <div className="flex items-start gap-6 group">
+                                <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200 group-hover:bg-[#7370FF]/10 group-hover:border-[#7370FF]/30 transition-all duration-500 shadow-sm group-hover:shadow-lg">
+                                    <IoCall className="text-[#7370FF] w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-gray-400 text-sm mb-1 uppercase tracking-widest">Call us</p>
-                                    <p className="text-white text-xl font-medium">+1 (555) 000-0000</p>
+                                    <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-1">Call us</p>
+                                    <p className="text-zinc-900 text-xl font-bold">+1 (555) 000-0000</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-5 group">
-                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-[#7370FF]/20 group-hover:border-[#7370FF]/50 transition-all duration-300">
-                                    <IoLocation className="text-[#9C99FF] w-6 h-6" />
+                            <div className="flex items-start gap-6 group">
+                                <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200 group-hover:bg-[#7370FF]/10 group-hover:border-[#7370FF]/30 transition-all duration-500 shadow-sm group-hover:shadow-lg">
+                                    <IoLocation className="text-[#7370FF] w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-gray-400 text-sm mb-1 uppercase tracking-widest">Our Studio</p>
-                                    <p className="text-white text-xl font-medium">
+                                    <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-1">Our Studio</p>
+                                    <p className="text-zinc-900 text-xl font-bold leading-relaxed">
                                         123 Design Street, Creative Valley<br />CA 94103, USA
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="pt-8 border-t border-white/10">
-                            <p className="text-white text-lg font-medium mb-6">Follow our journey</p>
+                        <div className="pt-8 border-t border-zinc-200">
+                            <p className="text-zinc-900 text-lg font-medium mb-6">Follow our journey</p>
                             <div className="flex gap-4">
                                 {[
                                     { icon: <IoLogoLinkedin />, label: 'LinkedIn' },
@@ -120,7 +120,7 @@ const Contact = () => {
                                     <a
                                         key={index}
                                         href="#"
-                                        className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#7370FF] hover:border-[#7370FF] transition-all duration-300"
+                                        className="w-12 h-12 rounded-full bg-zinc-50 border border-zinc-200 flex items-center justify-center text-zinc-900 hover:bg-[#7370FF] hover:border-[#7370FF] hover:text-white transition-all duration-300"
                                         aria-label={social.label}
                                     >
                                         <span className="text-xl">{social.icon}</span>
@@ -132,7 +132,7 @@ const Contact = () => {
 
                     {/* Right Column: Contact Form */}
                     <motion.div
-                        className="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12"
+                        className="bg-zinc-50 border border-zinc-200 rounded-[2rem] p-8 md:p-12"
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
@@ -140,7 +140,7 @@ const Contact = () => {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-gray-400 text-sm ml-1">Full Name</label>
+                                    <label className={`text-zinc-500 text-sm font-bold ml-1 ${satoshiFont.className}`}>Full Name</label>
                                     <input
                                         type="text"
                                         name="name"
@@ -148,11 +148,11 @@ const Contact = () => {
                                         onChange={handleChange}
                                         placeholder="John Doe"
 
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all"
+                                        className="w-full bg-white border border-zinc-200 rounded-xl py-4 px-6 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-gray-400 text-sm ml-1">Email Address</label>
+                                    <label className={`text-zinc-500 text-sm font-bold ml-1 ${satoshiFont.className}`}>Email Address</label>
                                     <input
                                         type="email"
                                         name="email"
@@ -160,13 +160,13 @@ const Contact = () => {
                                         onChange={handleChange}
                                         placeholder="john@example.com"
 
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all"
+                                        className="w-full bg-white border border-zinc-200 rounded-xl py-4 px-6 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-gray-400 text-sm ml-1">Subject</label>
+                                <label className={`text-zinc-500 text-sm font-bold ml-1 ${satoshiFont.className}`}>Subject</label>
                                 <input
                                     type="text"
                                     name="subject"
@@ -174,12 +174,12 @@ const Contact = () => {
                                     onChange={handleChange}
                                     placeholder="How can we help?"
 
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all"
+                                    className="w-full bg-white border border-zinc-200 rounded-xl py-4 px-6 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-gray-400 text-sm ml-1">Message</label>
+                                <label className={`text-zinc-500 text-sm font-bold ml-1 ${satoshiFont.className}`}>Message</label>
                                 <textarea
                                     rows={5}
                                     name="message"
@@ -187,7 +187,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     placeholder="Tell us about your project..."
 
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all resize-none"
+                                    className="w-full bg-white border border-zinc-200 rounded-xl py-4 px-6 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[#7370FF] focus:ring-1 focus:ring-[#7370FF] transition-all resize-none"
                                 />
                             </div>
 

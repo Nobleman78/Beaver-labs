@@ -8,6 +8,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import { manrope } from "../utils/font";
 
 // This is your standalone Accordion component
 export function AccordionDemo() {
@@ -16,27 +17,24 @@ export function AccordionDemo() {
             type="single"
             collapsible
             defaultValue="shipping"
-            className="max-w-lg mx-auto text-white"
+            className="max-w-2xl mx-auto space-y-4"
         >
-            <AccordionItem value="shipping">
-                <AccordionTrigger>What are your shipping options?</AccordionTrigger>
-                <AccordionContent>
-                    We offer standard (5-7 days), express (2-3 days), and overnight
-                    shipping. Free shipping on international orders.
+            <AccordionItem value="shipping" className="bg-white border border-zinc-200 rounded-2xl px-6 py-2 shadow-sm hover:shadow-md transition-all duration-300">
+                <AccordionTrigger className={`text-zinc-900 font-bold text-lg hover:no-underline ${manrope.className}`}>What are your typical project timelines?</AccordionTrigger>
+                <AccordionContent className={`text-zinc-500 text-base leading-relaxed pt-2 pb-6 ${manrope.className}`}>
+                    Every project is unique, but typical timelines range from 4-8 weeks for a standard MVP and 12-16 weeks for more complex enterprise solutions. We prioritize quality and transparency at every stage.
                 </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="returns">
-                <AccordionTrigger>What is your return policy?</AccordionTrigger>
-                <AccordionContent>
-                    Returns accepted within 30 days. Items must be unused and in original
-                    packaging. Refunds processed within 5-7 business days.
+            <AccordionItem value="returns" className="bg-white border border-zinc-200 rounded-2xl px-6 py-2 shadow-sm hover:shadow-md transition-all duration-300">
+                <AccordionTrigger className={`text-zinc-900 font-bold text-lg hover:no-underline ${manrope.className}`}>Do you provide ongoing support after launch?</AccordionTrigger>
+                <AccordionContent className={`text-zinc-500 text-base leading-relaxed pt-2 pb-6 ${manrope.className}`}>
+                    Absolutely. We offer flexible maintenance packages to ensure your product stays updated, secure, and performs at its best as your user base grows.
                 </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="support">
-                <AccordionTrigger>How can I contact customer support?</AccordionTrigger>
-                <AccordionContent>
-                    Reach us via email, live chat, or phone. We respond within 24 hours
-                    during business days.
+            <AccordionItem value="support" className="bg-white border border-zinc-200 rounded-2xl px-6 py-2 shadow-sm hover:shadow-md transition-all duration-300">
+                <AccordionTrigger className={`text-zinc-900 font-bold text-lg hover:no-underline ${manrope.className}`}>How do we communicate throughout the process?</AccordionTrigger>
+                <AccordionContent className={`text-zinc-500 text-base leading-relaxed pt-2 pb-6 ${manrope.className}`}>
+                    We use Slack for daily communication, Jira for task tracking, and weekly syncs via Google Meet. You&apos;ll always have a clear view of our progress and upcoming milestones.
                 </AccordionContent>
             </AccordionItem>
         </Accordion>
@@ -46,17 +44,31 @@ export function AccordionDemo() {
 // This is your main Testimonials page/section
 const FAQ = () => {
     return (
-        <div id="faq">
+        <div id="faq" className='bg-[#7370FF] rounded-t-[100px]'>
             <motion.div
-                className="py-16 md:py-24 px-6 md:px-12 lg:px-24"
+                className="py-20 md:py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
                 viewport={{ once: true, amount: 0.2 }}
             >
-                <h2 className="text-4xl md:text-5xl font-bold mb-10 md:mb-16 text-white text-center tracking-tight">Frequently Asked Questions</h2>
-                {/* We call the AccordionDemo component here */}
+                <div className="text-center mb-16 md:mb-20">
+                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-8`}>
+                        Frequently Asked Questions
+                    </h2>
+                </div>
+
                 <AccordionDemo />
+
+                <motion.div
+                    className="mt-20 text-center"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                >
+                   
+
+                </motion.div>
             </motion.div>
         </div>
     );

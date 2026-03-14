@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { manrope } from "../utils/font";
 
 const reviews = [
     {
@@ -64,9 +65,8 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
     return (
         <figure
             className={cn(
-                "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 ",
-                // Light mode
-                "border-white",
+                "relative h-full w-72 cursor-pointer overflow-hidden rounded-2xl border p-6 transition-all duration-300",
+                "border-zinc-200 bg-white hover:border-[#7370FF]/30 hover:shadow-xl hover:shadow-[#7370FF]/5 hover:-translate-y-1",
             )}
         >
             <div className="flex flex-row items-center gap-2">
@@ -79,16 +79,16 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
                 />
 
                 <div className="flex flex-col">
-                    <figcaption className="text-sm font-medium text-white">
+                    <figcaption className="text-sm font-bold text-zinc-900">
                         {name}
                     </figcaption>
-                    <p className="text-xs font-medium text-white">
+                    <p className={`text-xs font-medium text-zinc-500 ${manrope.className}`}>
                         {username}
                     </p>
                 </div>
             </div>
 
-            <blockquote className="mt-2 text-sm text-white">{body}</blockquote>
+            <blockquote className={`mt-4 text-sm leading-relaxed text-zinc-600 ${manrope.className}`}>{body}</blockquote>
         </figure>
     );
 };
@@ -96,7 +96,10 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
 // Main Demo Component
 export function MarqueeDemo() {
     return (
-        <div id="testimonials" className="relative flex w-full flex-col items-center justify-center overflow-hidden py-16 md:py-24">
+        <div id="testimonials" className="relative flex w-full flex-col items-center justify-center overflow-hidden py-16 md:py-24 bg-[#7370FF]">
+            {/* Elegant Background Gradient */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-indigo-50 via-white to-white opacity-70 pointer-events-none" />
+
             <motion.div
                 className="text-center mb-12 md:mb-16 max-w-2xl mx-auto px-4"
                 initial={{ opacity: 0, y: 40 }}
@@ -104,11 +107,12 @@ export function MarqueeDemo() {
                 transition={{ duration: 0.7 }}
                 viewport={{ once: true, amount: 0.3 }}
             >
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">What people are saying</h2>
-                <p className="text-gray-400 text-base md:text-lg">Here what people are saying about us.</p>
+                <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-8`}>What people are saying</h2>
+                <p className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto mb-14 leading-relaxed font-medium tracking-[-0.01em]`}>Here what people are saying about our craft and process.</p>
             </motion.div>
 
-            <div className="relative flex w-full flex-col items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div className="relative flex w-full flex-col items-center justify-center overflow-hidden"
+                style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
                 <Marquee pauseOnHover className="[--duration:20s]">
                     {firstRow.map((review) => (
                         <ReviewCard key={review.username} {...review} />

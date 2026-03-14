@@ -20,7 +20,7 @@ const Videos = () => {
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 viewport={{ once: true, amount: 0.2 }}
             >
-                <div className="relative w-full max-w-5xl rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(115,112,255,0.15)] bg-black/40 backdrop-blur-sm group cursor-pointer">
+                <div className="relative w-full max-w-5xl rounded-2xl md:rounded-3xl overflow-hidden border border-zinc-200 shadow-[0_0_50px_rgba(115,112,255,0.15)] bg-zinc-50/50 backdrop-blur-sm group cursor-pointer">
                     <Image
                         src={video}
                         alt="Product Video Preview"

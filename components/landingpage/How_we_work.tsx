@@ -1,13 +1,12 @@
 'use client';
-
-import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { manrope } from '../utils/font';
 
 const workingPrinciple = [
     {
         step: "01",
-        icon: "/images/line-md_search (2).png",
+        icon: "/images/new/idea.png",
         title: "Discovery",
         description: "We start by diving deep into your vision and requirements.",
         includes: [
@@ -17,7 +16,7 @@ const workingPrinciple = [
     },
     {
         step: "02",
-        icon: "/images/leaf.png",
+        icon: "/images/new/design.png",
         title: "Design",
         description: "Crafting beautiful, intuitive, and engaging interfaces.",
         includes: [
@@ -27,7 +26,7 @@ const workingPrinciple = [
     },
     {
         step: "03",
-        icon: "/images/rounded-point.png",
+        icon: "/images/new/development.png",
         title: "Development",
         description: "Building robust, scalable, and high-performance solutions.",
         includes: [
@@ -37,7 +36,7 @@ const workingPrinciple = [
     },
     {
         step: "04",
-        icon: "/images/arrow.png",
+        icon: "/images/new/launch.png",
         title: "Launch",
         description: "Deploying your product and ensuring a smooth transition.",
         includes: [
@@ -49,74 +48,102 @@ const workingPrinciple = [
 
 const How_we_work = () => {
     return (
-        <section className="py-16 md:py-24 relative overflow-hidden">
-            {/* Ambient background glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
+        <section className="relative overflow-hidden bg-[#7370FF] rounded-t-[80px] lg:rounded-t-[120px] md:py-16">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+                <div className="absolute top-0 -left-4 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-pulse" style={{ willChange: "opacity", transform: "translateZ(0)" }} />
+                <div className="absolute bottom-0 -right-4 w-96 h-96 bg-purple-300/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', willChange: "opacity", transform: "translateZ(0)" }} />
+            </div>
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full max-w-7xl">
+                {/* Header Section */}
                 <motion.div
-                    className="text-center mb-16 lg:mb-20 max-w-2xl mx-auto"
+                    className="text-center mb-20 lg:mb-28 max-w-4xl mx-auto"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: 'easeOut' }}
                     viewport={{ once: true, amount: 0.3 }}
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-                        How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Work</span>
+                    style={{ willChange: "transform, opacity" }}>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="inline-block mb-6"
+                    >
+
+                    </motion.div>
+
+                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-8`}>
+                        How we work
                     </h2>
-                    <p className="text-gray-400 text-lg">
-                        From concept to launch — a simple, transparent, and efficient process to bring your ideas to life.
+                    <p className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto mb-14 leading-relaxed font-medium tracking-[-0.01em]`}>
+                        A structured, transparent, and efficient journey from the first concept
+                        to a world-class production release.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-                    {/* Connecting dashed line for desktop */}
-                    <div className="hidden lg:block absolute top-[50px] left-[12%] right-[12%] h-[2px] border-t-2 border-dashed border-gray-700/50 -z-10" />
+                {/* Diagonal Stepped Layout */}
+                {/* Vertical Stepped Layout */}
+                <div className="relative max-w-5xl mx-auto py-10">
+                    {/* Central Vertical Line */}
+                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 border-l-[2.5px] border-dashed border-[#b3c1d6] -translate-x-1/2 hidden md:block" />
 
-                    {workingPrinciple.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className="group relative bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/50 rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.1)] hover:-translate-y-2 flex flex-col"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.15, ease: 'easeOut' }}
-                            viewport={{ once: true, amount: 0.2 }}
-                        >
-                            <div className="absolute top-6 right-8 text-7xl font-black text-white/[0.03] group-hover:text-white/[0.08] transition-colors duration-500 pointer-events-none">
-                                {item.step}
-                            </div>
+                    {workingPrinciple.map((item, index) => {
+                        const isEven = index % 2 === 0;
 
-                            <div className="relative z-10 flex-grow">
-                                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 border border-white/10 group-hover:border-blue-400/30">
-                                    <div className="relative w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-500">
-                                        <Image src={item.icon} alt={item.title} fill className="object-contain" />
-                                    </div>
+                        return (
+                            <div key={index} className={`relative flex flex-col md:flex-row w-full mb-12 lg:mb-16 ${isEven ? 'justify-start' : 'justify-end'}`}>
+
+                                {/* Item Container */}
+                                <div className={`w-full lg:w-1/2 flex ${isEven ? 'lg:pr-20 justify-end' : 'lg:pl-20 justify-start'} relative`}>
+
+                                    {/* Horizontal Connecting Line - Desktop Only */}
+                                    <div className={`hidden md:block absolute top-[50%] -translate-y-[50%] w-20 border-t-[2.5px] border-dashed border-[#b3c1d6] 
+                                    ${isEven ? 'right-0' : 'left-0'}`} />
+
+                                    {/* Card */}
+                                    <motion.div
+                                        className="w-full max-w-115 bg-white rounded-[20px] shadow-[0_4px_40px_rgba(0,0,0,0.06)] p-8 lg:p-10 relative z-10 border border-slate-100/50"
+                                        initial={{ opacity: 0, x: isEven ? -40 : 40, y: 15 }}
+                                        whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                        transition={{ duration: 0.6, delay: 0.1 }}
+                                        viewport={{ once: true, amount: 0.3 }}
+                                        style={{ willChange: "transform, opacity" }}
+                                    >
+                                        <div className="flex justify-between items-start mb-6 gap-4">
+                                            {/* Title */}
+                                            <h3 className={`${manrope.className} text-[22px] lg:text-[26px] font-extrabold text-[#1e293b] mt-1 tracking-tight`}>
+                                                {item.title}
+                                            </h3>
+
+                                            {/* Badge */}
+                                            <div className="inline-flex shrink-0">
+                                                <span className={`${manrope.className} px-4 py-1.5 rounded-[12px] border-[1.5px] border-[#2563eb] text-[#2563eb] font-bold text-sm lg:text-[15px] bg-transparent whitespace-nowrap`}>
+                                                    Step - {item.step}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <p className={`${manrope.className} text-[#475569] text-base lg:text-[17px] leading-[1.7]`}>
+                                            {item.description}
+                                        </p>
+
+                                        {/* Includes list made very subtle to match layout weight */}
+                                        {item.includes && item.includes.length > 0 && (
+                                            <div className="mt-8 flex flex-wrap gap-2">
+                                                {item.includes.map((inc, i) => (
+                                                    <span key={i} className={`${manrope.className} px-3 py-1 bg-[#f8fafc] text-[#64748b] rounded-md text-[13px] border border-[#e2e8f0] font-medium`}>
+                                                        {inc}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </motion.div>
                                 </div>
-
-                                <h3 className="text-2xl font-bold text-white mb-4 tracking-wide group-hover:text-blue-400 transition-colors duration-300">
-                                    {item.title}
-                                </h3>
-
-                                <p className="text-gray-400 mb-8 text-sm leading-relaxed min-h-[60px]">
-                                    {item.description}
-                                </p>
-
-                                <ul className="space-y-4 mt-auto">
-                                    {item.includes.map((inc, i) => (
-                                        <li key={i} className="flex items-start text-gray-300 text-sm font-medium">
-                                            <span className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                                            </span>
-                                            {inc}
-                                        </li>
-                                    ))}
-                                </ul>
                             </div>
-
-                            {/* Hover gradient overlay */}
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                        </motion.div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

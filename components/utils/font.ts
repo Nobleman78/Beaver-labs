@@ -1,4 +1,6 @@
 import localFont from "next/font/local";
+import { Manrope } from "next/font/google";
+
 export const gerbilFont = localFont({
   src: "../../public/fonts/gerbil.otf",
   weight: "700",
@@ -27,4 +29,10 @@ export const satoshiFont = localFont({
       style: "light",
     },
   ],
+});
+
+export const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
 });

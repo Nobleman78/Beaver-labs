@@ -1,45 +1,71 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { IoCall } from "react-icons/io5";
-import { satoshiFont } from "../utils/font";
+import { manrope } from "../utils/font";
 
 const Hero = () => {
   return (
-    <div className="px-6 md:px-10 lg:px-0 max-w-7xl mx-auto py-16 md:py-24">
-      <div className="flex justify-center">
-        <div className="flex flex-col items-center">
-          <motion.h1
-            className="text-white text-5xl sm:text-6xl lg:text-7xl font-medium leading-tight text-center"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0 }}
+    <section className="relative w-full min-h-[60vh] md:min-h-[95vh] flex flex-col items-center justify-start md:justify-center pt-10 pb-16 md:py-0 px-6 md:px-10 lg:px-16 overflow-hidden bg-white">
+      <div className="max-w-6xl mx-auto text-center relative z-10 ">
+        {/* Optional: Badge or Tagline */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block mb-10 "
+        >
+
+        </motion.div>
+
+        <motion.h1
+          className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-zinc-900 leading-[1.05] mb-8`}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ willChange: "transform, opacity" }}
+        >
+          Turn your ideas{' '}
+          <br className="hidden sm:block " />
+          <span className="relative inline-block">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#7370FF] via-[#8B88FF] to-[#9C99FF] drop-shadow-sm">
+              into  reality </span>
+
+          </span>
+        </motion.h1>
+
+        <motion.p
+          className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-zinc-600 max-w-4xl mx-auto mb-14 leading-relaxed font-medium tracking-[-0.01em]`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          style={{ willChange: "transform, opacity" }}
+        >
+          We are a team of strategists, designers built with React, Typescript, Tailwind CSS, and Node js when you refuse to play things safe.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <motion.a
+            href="tel:+09433443"
+            className={`${manrope.className} group relative px-9 py-4.5 rounded-full bg-[#7370FF] text-white font-bold text-base md:text-lg flex items-center gap-3 overflow-hidden`}
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            style={{ willChange: "transform" }}
           >
-            Turn your ideas <br className="hidden sm:block" /> into reality
-          </motion.h1>
-          <motion.p
-            className={`text-white w-full max-w-3xl text-base sm:text-lg md:text-xl font-normal text-center mt-6 md:mt-10 px-4 md:px-0 ${satoshiFont.className}`}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-          >
-            We are a team of strategists, designers built
-            with React, Typescript, Tailwind CSS, <br className="hidden md:block" /> and Node.js when you refuse to
-            play things safe.
-          </motion.p>
-          <motion.div
-            className={`flex items-center justify-center ${satoshiFont.className}`}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <a href="tel:+09433443" className="py-3 md:py-4 px-6 md:px-8 font-bold bg-linear-to-r from-[#9C99FF] to-[#7370FF] text-white gap-2 rounded-full mt-8 md:mt-10 flex items-center hover:opacity-90 transition-opacity">
-              Book your call <IoCall className="text-white w-5 h-5" />
-            </a>
-          </motion.div>
-        </div>
+            {/* Shine effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <span className="relative z-10">Start Your Project</span>
+            <IoCall className="relative z-10 text-white w-5 h-5 group-hover:rotate-12 transition-transform" />
+          </motion.a>
+        </motion.div>
       </div>
-    </div>
+    </section >
   );
 };
 

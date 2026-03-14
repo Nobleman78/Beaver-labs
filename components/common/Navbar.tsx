@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaPhone, FaBars, FaXmark } from "react-icons/fa6";
-import { gerbilFont, satoshiFont } from '../utils/font';
+import { manrope } from '../utils/font';
+
 
 const navItems = [
     { label: "Home", path: "/" },
@@ -27,14 +28,14 @@ const Navbar = () => {
         <>
             {/* Fixed Navbar */}
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-[#1E1E1E]/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.3)] border-b border-white/5'
-                    : 'bg-transparent'
+                className={`fixed top-0 left-0 border-b border-gray-50 right-0 z-50 transition-all duration-300 ${scrolled
+                    ? 'bg-white '
+                    : 'bg-white'
                     }`}
             >
                 <div className='flex items-center justify-between py-5 px-6 md:px-10 xl:px-0 max-w-7xl mx-auto'>
                     {/* Logo */}
-                    <Link href={'/'} className={`${gerbilFont.className} text-white text-xl`}>
+                    <Link href={'/'} className={`${manrope.className} text-black text-2xl`}>
                         Breaverlabs
                     </Link>
 
@@ -43,7 +44,7 @@ const Navbar = () => {
                         {navItems.map((item, index) => (
                             <div key={index}>
                                 <Link
-                                    className={`${gerbilFont.className} text-white hover:text-[#7370FF] transition-colors`}
+                                    className={`${manrope.className} text-black hover:text-[#7370FF] transition-colors text-xl`}
                                     href={item.path}
                                 >
                                     {item.label}
@@ -54,14 +55,14 @@ const Navbar = () => {
 
                     {/* Desktop Book Call Button */}
                     <div className='hidden md:flex items-center gap-2 bg-[#7370FF] rounded-full px-5 py-3 hover:bg-[#625df5] transition-colors cursor-pointer'>
-                        <a href="tel:+09433443" className={`text-white ${satoshiFont.className}`}>Book your call</a>
+                        <a href="tel:+09433443" className={`text-white text-xl ${manrope.className}`}>Book your call</a>
                         <FaPhone className='text-white' />
                     </div>
 
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className='md:hidden text-white z-50 focus:outline-none'
+                        className='md:hidden text-black z-50 focus:outline-none'
                         aria-label="Toggle menu"
                     >
                         {isOpen ? <FaXmark size={28} /> : <FaBars size={28} />}
@@ -75,7 +76,7 @@ const Navbar = () => {
                     {navItems.map((item, index) => (
                         <div key={index}>
                             <Link
-                                className={`${gerbilFont.className} text-white text-3xl hover:text-[#7370FF] transition-colors`}
+                                className={`${manrope.className} text-black text-3xl hover:text-[#7370FF] transition-colors`}
                                 href={item.path}
                                 onClick={() => setIsOpen(false)}
                             >
@@ -84,7 +85,7 @@ const Navbar = () => {
                         </div>
                     ))}
                     <div className='flex items-center gap-2 bg-[#7370FF] rounded-full px-8 py-4 mt-6'>
-                        <a href="tel:+09433443" className={`text-white text-lg font-medium ${satoshiFont.className}`}>Book your call</a>
+                        <a href="tel:+09433443" className={`text-white text-lg font-medium ${manrope.className}`}>Book your call</a>
                         <FaPhone className='text-white' />
                     </div>
                 </div>
