@@ -48,7 +48,7 @@ const workingPrinciple = [
 
 const HowWeWork = () => {
     return (
-        <section className="relative overflow-hidden bg-[#7370FF] rounded-t-[80px] lg:rounded-t-[120px] md:py-16">
+        <section className="relative overflow-hidden bg-[#7370FF] rounded-t-[60px] lg:rounded-t-[120px] py-12 md:py-16">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
                 <div className="absolute top-0 -left-4 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-pulse" style={{ willChange: "opacity", transform: "translateZ(0)" }} />
@@ -58,7 +58,7 @@ const HowWeWork = () => {
             <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full max-w-7xl">
                 {/* Header Section */}
                 <motion.div
-                    className="text-center mb-15 lg:mb-28 max-w-4xl mx-auto"
+                    className="text-center mb-10 md:mb-15 lg:mb-28 max-w-4xl mx-auto"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -74,10 +74,10 @@ const HowWeWork = () => {
 
                     </motion.div>
 
-                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-8`}>
+                    <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-5 md:mb-8`}>
                         How we work
                     </h2>
-                    <p className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto  leading-relaxed font-medium tracking-[-0.01em]`}>
+                    <p className={`${manrope.className} text-base sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-medium tracking-[-0.01em]`}>
                         A structured, transparent, and efficient journey from the first concept
                         to a world-class production release.
                     </p>

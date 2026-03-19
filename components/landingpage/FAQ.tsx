@@ -44,16 +44,16 @@ export function AccordionDemo() {
 // This is your main Testimonials page/section
 const FAQ = () => {
     return (
-        <div id="faq" className='bg-[#7370FF] rounded-t-[100px]'>
+        <div id="faq" className='bg-[#7370FF] rounded-t-[60px] md:rounded-t-[100px]'>
             <motion.div
-                className="py-20 md:py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
+                className="py-12 md:py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
                 viewport={{ once: true, amount: 0.2 }}
             >
-                <div className="text-center mb-16 md:mb-20">
-                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-8`}>
+                <div className="text-center mb-10 md:mb-20">
+                    <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-5 md:mb-8`}>
                         Frequently Asked Questions
                     </h2>
                 </div>

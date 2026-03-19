@@ -32,21 +32,20 @@ const ArrowButton = ({ size = 16, className = 'bottom-5 right-5 w-7 h-7' }: { si
 
 const WhatWeDoBest = () => {
     return (
-        <section className="w-full py-10 md:py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <section className="w-full py-8 md:py-24 px-6 md:px-12 lg:px-24 bg-white">
             <div className="max-w-7xl mx-auto flex flex-col items-center">
 
                 {/* Header */}
                 <motion.div
-                    className=" text-center max-w-4xl mb-8 md:mb-16"
+                    className="text-center max-w-4xl mb-6 md:mb-16"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-zinc-900 leading-[1.05] mb-8`}>What we do best</h2>
-                    <p className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-zinc-600 max-w-4xl mx-auto mb-5 md:mb-10 leading-relaxed font-medium tracking-[-0.01em]`}>
+                    <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-zinc-900 leading-[1.05] mb-4 md:mb-8`}>What we do best</h2>
+                    <p className={`${manrope.className} text-base sm:text-xl md:text-2xl text-zinc-600 max-w-4xl mx-auto mb-4 md:mb-10 leading-relaxed font-medium tracking-[-0.01em]`}>
                         We are a team of strategists and designers building with React, TypeScript, Tailwind CSS, and Node.js
-
                     </p>
                 </motion.div>
 

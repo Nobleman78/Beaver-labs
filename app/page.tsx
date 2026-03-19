@@ -185,50 +185,55 @@ export default function Home() {
         <div className="min-h-screen bg-white overflow-x-hidden">
 
             {/* ── Hero ── */}
-            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pt-36 pb-16 text-center">
+            <section className="relative overflow-hidden w-full pt-24 pb-10 md:pt-36 md:pb-16 text-center">
+<div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 xl:px-0">
                 <motion.div
+                    className="relative z-10"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <motion.span
-                        className={`${manrope.className} inline-block text-[#7370FF] text-xs font-bold tracking-widest uppercase mb-6`}
+                    <motion.div
+                        className="inline-flex items-center mb-5 md:mb-6 px-4 py-2 rounded-full border border-[#7370FF]/20 bg-[#7370FF]/8"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        Product Design & Engineering Studio
-                    </motion.span>
+                        <span className={`${manrope.className} text-[#625DF5] text-xs font-bold tracking-widest uppercase`}>
+                            Product Design &amp; Engineering Studio
+                        </span>
+                    </motion.div>
 
-                    <h1 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold text-zinc-900 tracking-[-0.02em] leading-[1.05] mb-8`}>
-                        Your Agile Tech Team,<br className="hidden md:block" /> On Demand
+                    <h1 className={`${manrope.className} text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[80px] font-bold text-zinc-900 tracking-[-0.02em] leading-[1.1] md:leading-[1.05] mb-5 md:mb-8`}>
+                        Your Agile Tech Team,<br className="hidden sm:block" /> On Demand
                     </h1>
 
-                    <p className={`text-zinc-500 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12 ${manrope.className}`}>
+                    <p className={`text-zinc-500 text-base md:text-xl max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 ${manrope.className}`}>
                         From idea to MVP to scale, without the hassle and overhead of slow, traditional teams.
                         We are a full-stack engineering studio specializing in cutting-edge web, AI, and cloud solutions.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                         <motion.a
                             href="/contact"
-                            className={`${manrope.className} inline-flex items-center gap-3 bg-[#7370FF] hover:bg-[#625df5] text-white font-bold px-9 py-4 rounded-full transition-all duration-300 shadow-lg shadow-[#7370FF]/25 text-lg`}
+                            className={`${manrope.className} w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#625DF5] hover:bg-[#7370FF] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-[#625DF5]/25 text-base md:text-lg`}
                             whileHover={{ scale: 1.03, y: -2 }}
                             whileTap={{ scale: 0.97 }}
                         >
                             Start a Project
                             <IoCall className="w-5 h-5" />
                         </motion.a>
-                        <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
+                        <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
                             <Link
                                 href="/portfolio"
-                                className={`${manrope.className} inline-flex items-center gap-3 bg-white border-2 border-zinc-200 text-zinc-900 font-bold px-9 py-4 rounded-full transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-50 text-lg`}
+                                className={`${manrope.className} w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white border-2 border-zinc-200 text-zinc-700 font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-50 text-base md:text-lg`}
                             >
                                 See Our Work
                             </Link>
                         </motion.div>
                     </div>
                 </motion.div>
+                </div>
             </section>
 
             {/* ── Tech Stack Strip ── */}
@@ -244,18 +249,18 @@ export default function Home() {
             </div>
 
             {/* ── Services Bento Grid ── */}
-            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 py-24 md:py-32">
+            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 py-14 md:py-32">
                 <motion.div
-                    className="text-center mb-16 md:mb-20"
+                    className="text-center mb-10 md:mb-20"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold text-zinc-900 tracking-[-0.02em] leading-[1.05] mb-6`}>
+                    <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-[80px] font-bold text-zinc-900 tracking-[-0.02em] leading-[1.05] mb-4 md:mb-6`}>
                         What we build
                     </h2>
-                    <p className={`text-zinc-500 text-lg md:text-xl max-w-xl mx-auto ${manrope.className}`}>
+                    <p className={`text-zinc-500 text-base md:text-xl max-w-xl mx-auto ${manrope.className}`}>
                         End-to-end capabilities across product, AI, and infrastructure.
                     </p>
                 </motion.div>
@@ -321,22 +326,22 @@ export default function Home() {
             </section>
 
             {/* ── Why Choose Us ── */}
-            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-24 md:pb-32">
-                <div className="bg-zinc-950 rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-14 md:pb-32">
+                <div className="bg-zinc-950 rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 relative overflow-hidden">
                     <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#7370FF]/15 rounded-full blur-[120px] pointer-events-none" />
                     <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#9C99FF]/10 rounded-full blur-[120px] pointer-events-none" />
 
                     <motion.div
-                        className="text-center mb-16 relative z-10"
+                        className="text-center mb-10 md:mb-16 relative z-10"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-6`}>
+                        <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-[80px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4 md:mb-6`}>
                             Why teams choose us
                         </h2>
-                        <p className={`text-zinc-400 text-lg md:text-xl max-w-xl mx-auto ${manrope.className}`}>
+                        <p className={`text-zinc-400 text-base md:text-xl max-w-xl mx-auto ${manrope.className}`}>
                             We&apos;re not a traditional agency. We&apos;re your embedded engineering team.
                         </p>
                     </motion.div>
@@ -363,18 +368,18 @@ export default function Home() {
             </section>
 
             {/* ── Testimonials ── */}
-            <section id="testimonials" className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-24 md:pb-32">
+            <section id="testimonials" className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-14 md:pb-32">
                 <motion.div
-                    className="text-center mb-16 md:mb-20"
+                    className="text-center mb-10 md:mb-20"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold text-zinc-900 tracking-[-0.02em] leading-[1.05] mb-6`}>
+                    <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-[80px] font-bold text-zinc-900 tracking-[-0.02em] leading-[1.05] mb-3 md:mb-6`}>
                         What clients say
                     </h2>
-                    <p className={`text-zinc-500 text-lg md:text-xl max-w-xl mx-auto ${manrope.className}`}>
+                    <p className={`text-zinc-500 text-base md:text-xl max-w-xl mx-auto ${manrope.className}`}>
                         Teams that trusted us to build, and came back to build more.
                     </p>
                 </motion.div>
@@ -411,8 +416,8 @@ export default function Home() {
             </section>
 
             {/* ── FAQ ── */}
-            <section id="faq" className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-24 md:pb-32">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <section id="faq" className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-14 md:pb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
 
                     {/* Left: heading */}
                     <motion.div
@@ -422,15 +427,15 @@ export default function Home() {
                         transition={{ duration: 0.7 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 tracking-tight leading-[1.1] mb-6`}>
+                        <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-900 tracking-tight leading-[1.1] mb-4 md:mb-6`}>
                             Frequently asked questions
                         </h2>
-                        <p className={`${manrope.className} text-zinc-500 text-lg leading-relaxed mb-10`}>
+                        <p className={`${manrope.className} text-zinc-500 text-base md:text-lg leading-relaxed mb-6 md:mb-10`}>
                             Still have questions? We&apos;d love to talk through your project.
                         </p>
                         <a
                             href="/contact"
-                            className={`${manrope.className} inline-flex items-center gap-3 bg-[#7370FF] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#625df5] hover:scale-105 shadow-lg shadow-[#7370FF]/25`}
+                            className={`${manrope.className} inline-flex items-center gap-3 bg-[#7370FF] text-white font-bold px-7 py-3.5 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:bg-[#625df5] hover:scale-105 shadow-lg shadow-[#7370FF]/25 text-sm md:text-base`}
                         >
                             Book a Free Call
                         </a>
@@ -497,9 +502,9 @@ export default function Home() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-28">
+            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 pb-16 md:pb-28">
                 <motion.div
-                    className="bg-linear-to-br from-[#7370FF]/10 via-white to-[#9C99FF]/5 border border-zinc-200 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group shadow-2xl shadow-[#7370FF]/5"
+                    className="bg-linear-to-br from-[#7370FF]/10 via-white to-[#9C99FF]/5 border border-zinc-200 rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden group shadow-2xl shadow-[#7370FF]/5"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
@@ -507,15 +512,15 @@ export default function Home() {
                 >
                     <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#7370FF]/10 blur-[100px] rounded-full group-hover:scale-150 transition-transform duration-1000 pointer-events-none" />
 
-                    <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 tracking-tight mb-6 relative z-10`}>
+                    <h2 className={`${manrope.className} text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-900 tracking-tight mb-4 md:mb-6 relative z-10`}>
                         Ready to build something great?
                     </h2>
-                    <p className={`text-zinc-500 text-lg md:text-xl max-w-xl mx-auto mb-12 relative z-10 ${manrope.className}`}>
+                    <p className={`text-zinc-500 text-base md:text-xl max-w-xl mx-auto mb-8 md:mb-12 relative z-10 ${manrope.className}`}>
                         Tell us about your idea. We&apos;ll scope it, design it, and ship it faster than you think.
                     </p>
                     <a
                         href="/contact"
-                        className="relative z-10 inline-flex items-center gap-3 bg-linear-to-r from-[#7370FF] to-[#9C99FF] hover:scale-105 active:scale-95 text-white font-bold px-10 py-5 rounded-full transition-all duration-300 shadow-[0_20px_40px_rgba(115,112,255,0.3)] text-lg"
+                        className="relative z-10 inline-flex items-center gap-3 bg-linear-to-r from-[#7370FF] to-[#9C99FF] hover:scale-105 active:scale-95 text-white font-bold px-8 py-4 md:px-10 md:py-5 rounded-full transition-all duration-300 shadow-[0_20px_40px_rgba(115,112,255,0.3)] text-base md:text-lg"
                     >
                         Book a Free Discovery Call
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

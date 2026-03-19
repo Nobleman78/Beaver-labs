@@ -14,7 +14,7 @@ const Showcase = () => {
         router.push('/contact')
     }
     return (
-        <section className="w-full py-16 md:py-24 px-6 md:px-12 lg:px-24">
+        <section className="w-full py-10 md:py-24 px-6 md:px-12 lg:px-24">
             <div className="max-w-7xl mx-auto flex flex-col items-center">
                 <motion.div
                     className="w-full"
@@ -26,12 +26,12 @@ const Showcase = () => {
                     {/* Top Bento Grid - 2 Columns */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mb-4 relative">
                         {/* Images for your designs */}
-                        <div className="group bg-white rounded-[2rem] p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-112.5">
+                        <div className="group bg-white rounded-[2rem] p-6 md:p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-[300px] md:h-[450px]">
                             <div className="z-10 relative">
-                                <h3 className={`${manrope.className} text-zinc-900 text-2xl font-bold mb-3`}>Images for your designs</h3>
-                                <p className="text-zinc-500 text-base">We use high-fidelity assets to bring your brand to life.</p>
+                                <h3 className={`${manrope.className} text-zinc-900 text-xl md:text-2xl font-bold mb-2 md:mb-3`}>Images for your designs</h3>
+                                <p className="text-zinc-500 text-sm md:text-base">We use high-fidelity assets to bring your brand to life.</p>
                             </div>
-                            <div className="relative w-full mx-auto grow mt-10 transition-transform duration-700 group-hover:scale-105">
+                            <div className="relative w-full mx-auto grow mt-6 md:mt-10 transition-transform duration-700 group-hover:scale-105">
                                 <Image
                                     src={imageStatue}
                                     alt="Images design"
@@ -42,12 +42,12 @@ const Showcase = () => {
                         </div>
 
                         {/* Clean Code */}
-                        <div className="group bg-white rounded-[2rem] p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-112.5">
-                            <div className="z-10 relative mb-6">
-                                <h3 className={`${manrope.className} text-zinc-900 text-2xl font-bold mb-3`}>Built for Performance</h3>
-                                <p className="text-zinc-500 text-base">Clean, scalable, and production-ready codebases.</p>
+                        <div className="group bg-white rounded-[2rem] p-6 md:p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-[300px] md:h-[450px]">
+                            <div className="z-10 relative mb-4 md:mb-6">
+                                <h3 className={`${manrope.className} text-zinc-900 text-xl md:text-2xl font-bold mb-2 md:mb-3`}>Built for Performance</h3>
+                                <p className="text-zinc-500 text-sm md:text-base">Clean, scalable, and production-ready codebases.</p>
                             </div>
-                            <div className="relative w-full mx-auto grow mt-6 transition-transform duration-700 group-hover:scale-105">
+                            <div className="relative w-full mx-auto grow mt-4 md:mt-6 transition-transform duration-700 group-hover:scale-105">
                                 <Image
                                     src={imagecode}
                                     alt="Clean code snippet"
@@ -61,22 +61,22 @@ const Showcase = () => {
                     {/* Bottom Bento Grid - 3 Columns */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                         {/* Build your website */}
-                        <div className="group bg-white rounded-[2rem] p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative h-95 overflow-hidden">
-                            <div className="flex justify-between items-center w-full relative mb-12">
+                        <div className="group bg-white rounded-[2rem] p-6 md:p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative h-[260px] md:h-[380px] overflow-hidden">
+                            <div className="flex justify-between items-center w-full relative mb-6 md:mb-12">
                                 <div className="flex items-center gap-2 text-[#7370FF] text-sm font-mono font-bold">
                                     <span>&lt; &gt;</span>
                                 </div>
                                 <span className={`text-xs text-zinc-400 font-bold uppercase tracking-widest absolute left-1/2 -translate-x-1/2 ${satoshiFont.className}`}>Digital Experience</span>
                             </div>
 
-                            <div className="relative border-2 border-[#1ABCFE] p-3 mb-4 w-max self-start mt-2">
+                            <div className="relative border-2 border-[#1ABCFE] p-3 mb-3 md:mb-4 w-max self-start mt-0 md:mt-2">
                                 <div className="absolute -top-1 -left-1 w-2 h-2 bg-white border-2 border-[#1ABCFE]"></div>
                                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-white border-2 border-[#1ABCFE]"></div>
                                 <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-white border-2 border-[#1ABCFE]"></div>
                                 <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-white border-2 border-[#1ABCFE]"></div>
-                                <h3 className={`${manrope.className} text-zinc-900 text-2xl font-bold px-1`}>Start Building Now</h3>
+                                <h3 className={`${manrope.className} text-zinc-900 text-xl md:text-2xl font-bold px-1`}>Start Building Now</h3>
                             </div>
-                            <p className="text-zinc-500 text-base mb-8">Ready to transform your vision into reality?</p>
+                            <p className="text-zinc-500 text-sm md:text-base mb-4 md:mb-8">Ready to transform your vision into reality?</p>
 
                             <button onClick={handleGotoContact} className="bg-linear-to-r from-[#7370FF] to-[#9C99FF] hover:opacity-90 cursor-pointer text-white text-sm font-bold py-3 px-8 rounded-full w-max mt-auto transition-all shadow-lg shadow-[#7370FF]/30">
                                 Get Started
@@ -84,10 +84,10 @@ const Showcase = () => {
                         </div>
 
                         {/* Organize Figma Files */}
-                        <div className="group bg-white rounded-[2rem] p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-95">
-                            <div className="z-10 relative mb-6">
-                                <h3 className={`${manrope.className} text-zinc-900 text-2xl font-bold mb-3`}>Optimized Workflows</h3>
-                                <p className="text-zinc-500 text-base">We organize Figma files for seamless developer handoff.</p>
+                        <div className="group bg-white rounded-[2rem] p-6 md:p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-[260px] md:h-[380px]">
+                            <div className="z-10 relative mb-4 md:mb-6">
+                                <h3 className={`${manrope.className} text-zinc-900 text-xl md:text-2xl font-bold mb-2 md:mb-3`}>Optimized Workflows</h3>
+                                <p className="text-zinc-500 text-sm md:text-base">We organize Figma files for seamless developer handoff.</p>
                             </div>
 
                             <div className="absolute bottom-8 right-8 w-[90%] bg-white rounded-2xl p-6 border border-zinc-100 shadow-2xl flex flex-col gap-4 transform group-hover:-translate-y-2 transition-transform duration-700">
@@ -106,10 +106,10 @@ const Showcase = () => {
                         </div>
 
                         {/* Figma's Designs */}
-                        <div className="group bg-white rounded-[2rem] p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-95">
+                        <div className="group bg-white rounded-[2rem] p-6 md:p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-700 flex flex-col relative overflow-hidden h-[260px] md:h-[380px]">
                             <div className="z-10 relative">
-                                <h3 className={`${manrope.className} text-zinc-900 text-2xl font-bold mb-3`}>Iconic Design</h3>
-                                <p className="text-zinc-500 text-base">Magic works right inside your favorite design tools.</p>
+                                <h3 className={`${manrope.className} text-zinc-900 text-xl md:text-2xl font-bold mb-2 md:mb-3`}>Iconic Design</h3>
+                                <p className="text-zinc-500 text-sm md:text-base">Magic works right inside your favorite design tools.</p>
                             </div>
                             <div className="absolute right-10 bottom-10 grid grid-cols-2 gap-3 w-35 group-hover:rotate-12 transition-transform duration-700">
                                 <div className="w-16 h-16 bg-[#F24E1E] rounded-l-full"></div>

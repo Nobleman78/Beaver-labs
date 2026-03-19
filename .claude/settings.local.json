@@ -4,7 +4,20 @@
       "Bash(python -c \":*)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(gh api:*)",
-      "Bash(curl -s \"https://raw.githubusercontent.com/anthropics/claude-code/main/plugins/frontend-design/skills/frontend-design/SKILL.md\")"
+      "Bash(curl -s \"https://raw.githubusercontent.com/anthropics/claude-code/main/plugins/frontend-design/skills/frontend-design/SKILL.md\")",
+      "WebFetch(domain:www.sparcvoice.org)",
+      "WebFetch(domain:www.csocs.com.au)",
+      "WebFetch(domain:www.arcadedigital.net)",
+      "WebFetch(domain:www.atarnob.com)",
+      "WebFetch(domain:boichitro.shop)",
+      "WebFetch(domain:www.chtvanguard.com)",
+      "WebFetch(domain:play.google.com)",
+      "WebSearch",
+      "Bash(npx next:*)",
+      "WebFetch(domain:magicui.design)",
+      "Bash(npx magicui-cli:*)",
+      "Bash(ls -la \"d:\\\\Beaver Labs\\\\beaverlabs-website\\\\components\\\\landingpage\"\" 2>/dev/null || echo \"Directory not found or doesn 't exist \")",
+      "Bash(npm install:*)"
     ]
   }
 }
