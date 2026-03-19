@@ -108,7 +108,7 @@ export function MarqueeDemo() {
                 viewport={{ once: true, amount: 0.3 }}
             >
                 <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-white leading-[1.05] mb-8`}>What people are saying</h2>
-                <p className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto mb-12 leading-relaxed font-medium tracking-[-0.01em]`}>Here what people are saying about our craft and process.</p>
+                <p className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto mb-12 leading-relaxed font-medium tracking-[-0.01em]`}>Here&apos;s what people are saying about our craft and process.</p>
             </motion.div>
 
             <div className="relative flex w-full flex-col items-center justify-center overflow-hidden"

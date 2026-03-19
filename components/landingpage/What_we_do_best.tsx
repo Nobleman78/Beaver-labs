@@ -45,7 +45,7 @@ const What_we_do_best = () => {
                 >
                     <h2 className={`${manrope.className} text-4xl md:text-5xl lg:text-[80px] font-bold tracking-[-0.02em] text-zinc-900 leading-[1.05] mb-8`}>What we do best</h2>
                     <p className={`${manrope.className} text-lg sm:text-xl md:text-2xl text-zinc-600 max-w-4xl mx-auto mb-5 md:mb-10 leading-relaxed font-medium tracking-[-0.01em]`}>
-                        We are a team of strategists, designers built with React, <br /> Typescript, Tailwind CSS, and Node.js
+                        We are a team of strategists and designers building with React, TypeScript, Tailwind CSS, and Node.js
 
                     </p>
                 </motion.div>

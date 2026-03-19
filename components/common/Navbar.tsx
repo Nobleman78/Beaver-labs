@@ -36,7 +36,7 @@ const Navbar = () => {
                 <div className='flex items-center justify-between py-5 px-6 md:px-10 xl:px-0 max-w-7xl mx-auto'>
                     {/* Logo */}
                     <Link href={'/'} className={`${manrope.className} text-black text-2xl`}>
-                        Breaverlabs
+                        Beaver Labs
                     </Link>
 
                     {/* Desktop Navigation */}

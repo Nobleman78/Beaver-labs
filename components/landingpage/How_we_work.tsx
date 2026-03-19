@@ -31,7 +31,7 @@ const workingPrinciple = [
         description: "Building robust, scalable, and high-performance solutions.",
         includes: [
             "Agile Sprint",
-            "Regular Update"
+            "Regular Updates"
         ]
     },
     {

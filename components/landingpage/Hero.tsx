@@ -30,7 +30,7 @@ const Hero = () => {
           <br className="hidden sm:block " />
           <span className="relative inline-block">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-[#7370FF] via-[#8B88FF] to-[#9C99FF] drop-shadow-sm">
-              into  reality </span>
+              into reality</span>
 
           </span>
         </motion.h1>
@@ -42,7 +42,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           style={{ willChange: "transform, opacity" }}
         >
-          We are a team of strategists, designers built with React, Typescript, Tailwind CSS, and Node js when you refuse to play things safe.
+          We are a team of strategists and designers building high-performance digital products with React, TypeScript, Tailwind CSS, and Node.js.
         </motion.p>
 
         <motion.div

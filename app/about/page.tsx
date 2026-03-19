@@ -34,7 +34,7 @@ const values = [
 
 const team = [
     { name: 'Susnat Chakma', role: 'Founder & CEO', gradient: 'from-purple-500 to-blue-500', initials: 'SC' },
-    { name: 'Sumed Tanchangya', role: 'UI.UX Designer', gradient: 'from-pink-500 to-orange-400', initials: 'ST' },
+    { name: 'Sumed Tanchangya', role: 'UI/UX Designer', gradient: 'from-pink-500 to-orange-400', initials: 'ST' },
     { name: 'Ala Pottra Chakma', role: 'Senior Engineer', gradient: 'from-green-400 to-cyan-500', initials: 'AC' },
     { name: 'Jasmin Chakma', role: 'Junior Software Developer', gradient: 'from-yellow-400 to-red-500', initials: 'JC' },
     { name: 'Noble Chakma', role: 'Junior Software Developer', gradient: 'from-yellow-400 to-red-500', initials: 'NC' },
@@ -60,7 +60,7 @@ const About = () => {
                         We Build the Future,<br className="hidden md:block" /> One Product at a Time
                     </h1>
                     <p className={`text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${manrope.className}`}>
-                        Breaverlabs is a product studio of designers and engineers obsessed with building
+                        Beaver Labs is a product studio of designers and engineers obsessed with building
                         beautiful, powerful digital products for founders and businesses worldwide.
                     </p>
                 </motion.div>
@@ -165,42 +165,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* ── Team ── */}
-            <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 py-20 md:py-28">
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    viewport={{ once: true }}
-                >
-                    {/* <span className="text-xs font-semibold tracking-widest uppercase text-[#9C99FF] mb-4 block">The People</span> */}
-                    <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight mb-4">Meet Our Team</h2>
-                    <p className="text-zinc-500 text-lg max-w-xl mx-auto">
-                        A small, mighty team of builders who care deeply about craft and the people we build for.
-                    </p>
-                </motion.div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {team.map((member, index) => (
-                        <motion.div
-                            key={member.name}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.12 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            className="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 text-center hover:border-[#7370FF]/40 hover:shadow-[0_0_30px_rgba(115,112,255,0.08)] transition-all duration-500 group"
-                        >
-                            {/* Avatar */}
-                            <div className={`w-20 h-20 rounded-2xl bg-linear-to-br ${member.gradient} flex items-center justify-center mx-auto mb-5 shadow-lg text-white text-2xl font-bold group-hover:scale-105 transition-transform duration-300`}>
-                                {member.initials}
-                            </div>
-                            <h3 className="text-zinc-900 text-lg font-bold mb-1">{member.name}</h3>
-                            <p className="text-[#9C99FF] text-sm font-medium">{member.role}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
+     
 
             {/* ── CTA ── */}
             <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-0 py-20 md:py-28">

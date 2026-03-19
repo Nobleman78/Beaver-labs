@@ -15,7 +15,7 @@ const services = [
         id: 1,
         title: 'SaaS Platform',
         description:
-            'We build scalable, multi-tenant SaaS platforms that power your business. From onboarding flows to billing integrations, we help you ship faster and scale confidently with React, Typescript. Come take a product-led growth approach that is ready to invite the future.',
+            'We build scalable, multi-tenant SaaS platforms that power your business. From onboarding flows to billing integrations, we help you ship faster and scale confidently with React and TypeScript — built for product-led growth from day one.',
         image: saas,
         imageAlt: 'SaaS Platform Visual',
     },
@@ -23,7 +23,7 @@ const services = [
         id: 2,
         title: 'Web Applications',
         description:
-            'We build blazing-fast web applications using Next.js, Typescript, Tailwind CSS, and Nodejs when you refuse to play things safe. We focus on performance, accessibility, and delivering exceptional digital experiences your users will love.',
+            'We build blazing-fast web applications using Next.js, TypeScript, Tailwind CSS, and Node.js. We focus on performance, accessibility, and delivering exceptional digital experiences your users will love.',
         image: webapp,
         imageAlt: 'Web Application Visual',
     },
@@ -31,7 +31,7 @@ const services = [
         id: 3,
         title: 'Mobile Apps',
         description:
-            'We create stunning, high-performance mobile apps for iOS and Android using React Native. Whether it is a consumer product or an internal tool, our mobile solutions are designed to delight users and drive real-world results.',
+            'We create stunning, high-performance mobile apps for iOS and Android using React Native. Whether it\'s a consumer product or an internal tool, our mobile solutions are designed to delight users and drive real-world results.',
         image: mobile,
         imageAlt: 'Mobile App Visual',
     },
@@ -47,7 +47,7 @@ const services = [
         id: 5,
         title: 'AI Automation',
         description:
-            'We integrate intelligent AI workflows that automate the repetitive, amplify the creative, and unlock new possibilities for your business. From LLM-powered tools to custom automation pipelines, we bring the future to your product today.',
+            'We integrate intelligent AI workflows that automate repetitive tasks, amplify the creative, and unlock new possibilities for your business. From LLM-powered tools to custom automation pipelines, we bring the future to your product today.',
         image: ai,
         imageAlt: 'AI Automation Visual',
     },
