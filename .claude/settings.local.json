@@ -17,7 +17,8 @@
       "WebFetch(domain:magicui.design)",
       "Bash(npx magicui-cli:*)",
       "Bash(ls -la \"d:\\\\Beaver Labs\\\\beaverlabs-website\\\\components\\\\landingpage\"\" 2>/dev/null || echo \"Directory not found or doesn 't exist \")",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(pnpm install:*)"
     ]
   }
 }
