@@ -164,7 +164,7 @@ export default function Home() {
                 <div className="absolute top-1/3 left-1/4 w-[500px] h-[400px] bg-[#7370FF]/12 blur-[130px] rounded-full pointer-events-none" />
                 <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[300px] bg-[#9C99FF]/8 blur-[120px] rounded-full pointer-events-none" />
 
-                <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 pt-24 pb-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 items-center">
+                <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 pt-24 pb-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 items-center relative">
 
                     {/* Left: Text content */}
                     <div className="relative z-10">
@@ -255,13 +255,15 @@ export default function Home() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
-                        className="relative h-[420px] md:h-[580px] w-full"
+                        className="absolute inset-0 md:relative md:inset-auto h-[100vh] md:h-[580px] w-full z-0 md:z-auto pointer-events-none md:pointer-events-auto flex items-center justify-center overflow-hidden md:overflow-visible"
                     >
-                        <Spotlight size={550} />
-                        <SplineScene
-                            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                            className="w-full h-full"
-                        />
+                        <div className="w-full h-full opacity-25 md:opacity-100 scale-150 md:scale-100 transition-opacity duration-1000 mt-20 md:mt-0">
+                            <Spotlight size={550} />
+                            <SplineScene
+                                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                                className="w-full h-full"
+                            />
+                        </div>
                     </motion.div>
                 </div>
 
@@ -351,7 +353,7 @@ export default function Home() {
                         className="flex flex-col items-center text-center mb-16 md:mb-24 relative z-10"
                     >
                         <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-white tracking-[-0.02em] leading-tight mb-5">
-                            What we <span>build</span>
+                            What We <span className='text-[#7370FF]'>Build</span>
                         </h2>
                         <p className="text-zinc-400 text-lg md:text-xl max-w-2xl">
                             End-to-end capabilities across product, AI, and infrastructure.
@@ -460,9 +462,9 @@ export default function Home() {
                             Get in touch
                         </span>
                         <h2 className="text-[clamp(2.5rem,7vw,6.5rem)] font-extrabold text-white tracking-[-0.03em] leading-[1.02] mb-8 max-w-4xl mx-auto">
-                            Ready to build
-                            <br />
-                            <span className="text-[#7370FF]">something real?</span>
+                            Ready to Build
+                            <br  />
+                            <span className="text-[#7370FF] pt-24 ">Something Real?</span>
                         </h2>
                         <p className="text-zinc-500 text-lg max-w-sm mx-auto leading-relaxed mb-14">
                             No forms. No waiting. Email us and we'll get back within 24 hours.
