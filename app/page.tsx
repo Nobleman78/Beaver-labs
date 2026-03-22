@@ -202,8 +202,8 @@ export default function Home() {
                 className="relative md:sticky md:top-0 z-0 min-h-[100svh] bg-zinc-950 flex items-center overflow-hidden"
             >
                 {/* Ambient glows */}
-                <div className="absolute top-1/3 left-1/4 w-[500px] h-[400px] bg-[#7370FF]/12 blur-[130px] rounded-full pointer-events-none" />
-                <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[300px] bg-[#9C99FF]/8 blur-[120px] rounded-full pointer-events-none" />
+                <div className="hidden md:block absolute top-1/3 left-1/4 w-[500px] h-[400px] bg-[#7370FF]/12 blur-[130px] rounded-full pointer-events-none" />
+                <div className="hidden md:block absolute bottom-1/4 right-1/4 w-[400px] h-[300px] bg-[#9C99FF]/8 blur-[120px] rounded-full pointer-events-none" />
 
                 <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 pt-24 pb-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 items-center relative">
 
@@ -299,7 +299,7 @@ export default function Home() {
                         className="absolute inset-0 md:relative md:inset-auto h-[100svh] md:h-[580px] w-full z-0 md:z-auto pointer-events-none md:pointer-events-auto flex items-center justify-center overflow-hidden md:overflow-visible"
                     >
                         <div className="w-full h-full opacity-25 md:opacity-100 scale-150 md:scale-100 transition-opacity duration-1000 mt-20 md:mt-0 relative">
-                            <Spotlight size={550} />
+                            <Spotlight size={550} className="hidden md:block" />
                             <SplineScene
                                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                                 className="w-full h-full"
@@ -337,7 +337,7 @@ export default function Home() {
                     style={{ '--dynamic-top': whyHeight > 0 ? `min(0px, calc(100svh - ${whyHeight}px))` : '0px' } as React.CSSProperties}
                 >
                 {/* Ambient glow */}
-                <div className="absolute top-1/2 left-1/3 w-[600px] h-[400px] bg-[#7370FF]/10 blur-[150px] rounded-full pointer-events-none -translate-y-1/2" />
+                <div className="hidden md:block absolute top-1/2 left-1/3 w-[600px] h-[400px] bg-[#7370FF]/10 blur-[150px] rounded-full pointer-events-none -translate-y-1/2" />
 
                 <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 py-24">
                     <div className="mb-16">
@@ -382,7 +382,7 @@ export default function Home() {
                 style={{ '--services-top': servicesHeight > 0 ? `min(0px, calc(100svh - ${servicesHeight}px))` : 'min(0px, calc(100svh - 100%))' } as React.CSSProperties}
             >
                 {/* Ambient glow */}
-                <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-[#7370FF]/6 blur-[130px] rounded-full pointer-events-none" />
+                <div className="hidden md:block absolute top-0 right-1/4 w-[500px] h-[300px] bg-[#7370FF]/6 blur-[130px] rounded-full pointer-events-none" />
 
                 <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 py-20 md:py-32">
                     {/* Header */}
@@ -420,7 +420,7 @@ export default function Home() {
                             >
                                 {/* Highlight ambient interior glow */}
                                 {card.highlight && (
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#7370FF]/10 blur-[80px] rounded-full mix-blend-screen pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-60" />
+                                    <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-[#7370FF]/10 blur-[80px] rounded-full mix-blend-screen pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-60" />
                                 )}
 
                                 {/* Header row -> Number and Arrow */}
@@ -481,7 +481,7 @@ export default function Home() {
                 className="relative md:sticky md:top-0 z-50 min-h-[100svh] bg-zinc-950 rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_60px_rgba(0,0,0,0.7)] flex items-center justify-center"
             >
                 {/* Large ambient glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#7370FF]/14 blur-[160px] rounded-full pointer-events-none" />
+                <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#7370FF]/14 blur-[160px] rounded-full pointer-events-none" />
 
                 {/* Subtle grid */}
                 <div
