@@ -66,9 +66,9 @@ const Navbar = () => {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className={`${manrope.className} ${isLightTheme ? 'text-zinc-900' : 'text-white'} text-2xl font-bold tracking-tight transition-colors duration-500`}
+                        className={`${manrope.className} ${isLightTheme ? ' font-light text-zinc-900' : 'text-white'} text-2xl  tracking-tight transition-colors duration-500`}
                     >
-                        Beaver Labs
+                        <span className='text-[#7370FF] font-bold'>beaver</span>labs.
                     </Link>
 
                     {/* Desktop Navigation */}
