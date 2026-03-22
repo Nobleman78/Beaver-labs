@@ -387,10 +387,10 @@ export default function Home() {
                 <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 py-20 md:py-32">
                     {/* Header */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
+                        transition={{ duration: isMobile ? 0 : 0.7 }}
                         className="flex flex-col items-center text-center mb-16 md:mb-24 relative z-10"
                     >
                         <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-white tracking-[-0.02em] leading-tight mb-5">
@@ -406,10 +406,10 @@ export default function Home() {
                         {servicesData.map((card, i) => (
                             <motion.div
                                 key={card.number}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: '-40px' }}
-                                transition={{ duration: 0.6, delay: i * 0.08 }}
+                                viewport={{ once: true, margin: isMobile ? '50px' : '-40px' }}
+                                transition={{ duration: isMobile ? 0 : 0.6, delay: isMobile ? 0 : i * 0.08 }}
                                 className={cn(
                                     'group relative flex flex-col p-8 md:p-10 rounded-[2rem] cursor-pointer border transition-all duration-500 hover:-translate-y-1 overflow-hidden min-h-[360px] cursor-default',
                                     card.highlight
@@ -494,10 +494,10 @@ export default function Home() {
 
                 <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 text-center relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.9 }}
+                        transition={{ duration: isMobile ? 0 : 0.9 }}
                     >
                         <span className="text-[#7370FF] text-[11px] font-bold tracking-[0.22em] uppercase block mb-10">
                             Get in touch
