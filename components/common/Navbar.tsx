@@ -60,7 +60,7 @@ const Navbar = () => {
                     <div 
                         className={`pointer-events-auto flex items-center justify-between w-full transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] ${
                             scrolled
-                                ? `max-w-[320px] md:max-w-[460px] rounded-[2rem] py-2 px-5 shadow-[0_8px_30px_rgba(0,0,0,0.5)] border ${isLightTheme ? 'bg-white/90 backdrop-blur-lg border-zinc-200' : 'bg-[#0a0a0a]/80 backdrop-blur-xl border-white/10'}`
+                                ? `max-w-[320px] md:max-w-[460px] rounded-full py-2 px-5 shadow-[0_8px_30px_rgba(0,0,0,0.5)] border ${isLightTheme ? 'bg-white/90 backdrop-blur-lg border-zinc-200' : 'bg-[#0a0a0a]/80 backdrop-blur-xl border-white/10'}`
                                 : 'max-w-7xl rounded-none py-3 md:py-4 px-6 md:px-10 xl:px-0 border-transparent bg-transparent'
                         }`}
                     >
