@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from 'framer-motion';
 import { manrope } from '@/components/utils/font';
 import { FiArrowDown, FiArrowUpRight, FiMail, FiMapPin } from 'react-icons/fi';
 import {
@@ -47,6 +47,27 @@ const slideLeft = (delay = 0) => ({
         transition: { duration: 0.8, delay, ease: [0.22, 0.61, 0.36, 1] as [number, number, number, number] },
     },
 });
+
+const RevealText = ({ text, progress, start, end }: { text: string, progress: MotionValue<number>, start: number, end: number }) => {
+    const chars = text.split("");
+    const step = (end - start) / chars.length;
+    
+    return (
+        <span className="relative inline-block whitespace-pre-wrap">
+            {chars.map((char, i) => {
+                const charStart = start + i * step;
+                const charEnd = start + (i + 1) * step;
+                const color = useTransform(progress, [charStart, charEnd], ["rgba(255, 255, 255, 0.85)", "#7370FF"]);
+                
+                return (
+                    <motion.span key={i} style={{ color }}>
+                        {char}
+                    </motion.span>
+                )
+            })}
+        </span>
+    );
+};
 
 /* ─── Data ─── */
 const manifestoLines = [
@@ -124,6 +145,11 @@ export default function Home() {
 
     const servicesRef = useRef<HTMLElement>(null);
     const whyRef = useRef<HTMLElement>(null);
+    const spacerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress: whyScrollProgress } = useScroll({
+        target: spacerRef,
+        offset: ['start end', 'end end']
+    });
     const [servicesHeight, setServicesHeight] = useState(0);
     const [whyHeight, setWhyHeight] = useState(0);
 
@@ -296,40 +322,36 @@ export default function Home() {
                 <div className="absolute top-1/2 left-1/3 w-[600px] h-[400px] bg-[#7370FF]/10 blur-[150px] rounded-full pointer-events-none -translate-y-1/2" />
 
                 <div className="max-w-7xl w-full mx-auto px-6 md:px-10 xl:px-0 py-24">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="mb-16"
-                    >
+                    <div className="mb-16">
                         <span className="text-[#7370FF] text-[11px] font-bold tracking-[0.22em] uppercase">
                             Why on demand
                         </span>
-                    </motion.div>
+                    </div>
 
                     <div>
-                        {manifestoLines.map((line, i) => (
-                            <motion.div
-                                key={i}
-                                variants={slideLeft(line.delay)}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, margin: '-80px' }}
-                                className="py-7 md:py-9 border-b border-white/6 last:border-0 group cursor-default"
-                            >
-                                {/* Number */}
-                                <span className="text-[11px] font-bold text-white/15 tabular-nums mr-6 select-none">
-                                    {String(i + 1).padStart(2, '0')}
-                                </span>
-                                <span className="text-[clamp(1.5rem,4vw,3.2rem)] font-bold text-white/75 leading-tight tracking-[-0.01em] group-hover:text-white transition-colors duration-400">
-                                    {line.text}
-                                </span>
-                            </motion.div>
-                        ))}
+                        {manifestoLines.map((line, i) => {
+                            const start = i * 0.25;
+                            const end = start + 0.25;
+                            return (
+                                <div
+                                    key={i}
+                                    className="py-7 md:py-9 border-b border-white/6 last:border-0 group cursor-default"
+                                >
+                                    <span className="text-[11px] font-bold text-white/15 tabular-nums mr-6 select-none">
+                                        {String(i + 1).padStart(2, '0')}
+                                    </span>
+                                    <span className="text-[clamp(1.5rem,4vw,3.2rem)] font-bold leading-tight tracking-[-0.01em]">
+                                        <RevealText text={line.text} progress={whyScrollProgress} start={start} end={end} />
+                                    </span>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
+
+            {/* Scroll animation spacer to hold `#why` in place for 200vh */}
+            <div ref={spacerRef} className="h-[200vh] w-full" />
 
             {/* ════════════════════════════════════════════════
                 03 · SERVICES — sticky layer z-20
@@ -370,7 +392,7 @@ export default function Home() {
                                 viewport={{ once: true, margin: '-40px' }}
                                 transition={{ duration: 0.6, delay: i * 0.08 }}
                                 className={cn(
-                                    'group relative flex flex-col p-8 md:p-10 rounded-[2rem] border transition-all duration-500 hover:-translate-y-1 overflow-hidden min-h-[360px] cursor-default',
+                                    'group relative flex flex-col p-8 md:p-10 rounded-[2rem] cursor-pointer border transition-all duration-500 hover:-translate-y-1 overflow-hidden min-h-[360px] cursor-default',
                                     card.highlight
                                         ? 'bg-linear-to-b from-[#7370FF]/8 to-zinc-950/50 border-[#7370FF]/25 hover:border-[#7370FF]/50 hover:shadow-[0_8px_32px_rgba(115,112,255,0.15)]'
                                         : 'bg-white/2 border-white/6 hover:bg-white/4 hover:border-white/10',
