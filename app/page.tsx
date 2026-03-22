@@ -146,10 +146,25 @@ export default function Home() {
     const servicesRef = useRef<HTMLElement>(null);
     const whyRef = useRef<HTMLElement>(null);
     const spacerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress: whyScrollProgress } = useScroll({
+    const { scrollYProgress: desktopProgress } = useScroll({
         target: spacerRef,
         offset: ['start end', 'end end']
     });
+    const { scrollYProgress: mobileProgress } = useScroll({
+        target: spacerRef,
+        offset: ['start 65%', 'end 20%']
+    });
+
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const whyScrollProgress = isMobile ? mobileProgress : desktopProgress;
+
     const [servicesHeight, setServicesHeight] = useState(0);
     const [whyHeight, setWhyHeight] = useState(0);
 
@@ -184,7 +199,7 @@ export default function Home() {
             ════════════════════════════════════════════════ */}
             <section
                 id="hero"
-                className="sticky top-0 z-0 min-h-[100svh] bg-zinc-950 flex items-center overflow-hidden"
+                className="relative md:sticky md:top-0 z-0 min-h-[100svh] bg-zinc-950 flex items-center overflow-hidden"
             >
                 {/* Ambient glows */}
                 <div className="absolute top-1/3 left-1/4 w-[500px] h-[400px] bg-[#7370FF]/12 blur-[130px] rounded-full pointer-events-none" />
@@ -314,12 +329,13 @@ export default function Home() {
             {/* ════════════════════════════════════════════════
                 02 · MANIFESTO — sticky layer z-10
             ════════════════════════════════════════════════ */}
-            <section
-                id="why"
-                ref={whyRef}
-                className="sticky z-10 min-h-[100svh] bg-zinc-950 rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_40px_rgba(0,0,0,0.6)] flex items-center"
-                style={{ top: whyHeight > 0 ? `min(0px, calc(100svh - ${whyHeight}px))` : '0px' }}
-            >
+            <div ref={spacerRef} className="relative w-full">
+                <section
+                    id="why"
+                    ref={whyRef}
+                    className="relative md:sticky z-10 min-h-0 md:min-h-[100svh] bg-zinc-950 rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_40px_rgba(0,0,0,0.6)] flex items-center md:top-[var(--dynamic-top)]"
+                    style={{ '--dynamic-top': whyHeight > 0 ? `min(0px, calc(100svh - ${whyHeight}px))` : '0px' } as React.CSSProperties}
+                >
                 {/* Ambient glow */}
                 <div className="absolute top-1/2 left-1/3 w-[600px] h-[400px] bg-[#7370FF]/10 blur-[150px] rounded-full pointer-events-none -translate-y-1/2" />
 
@@ -337,7 +353,7 @@ export default function Home() {
                             return (
                                 <div
                                     key={i}
-                                    className="py-7 md:py-9 border-b border-white/6 last:border-0 group cursor-default"
+                                    className="py-5 md:py-9 border-b border-white/6 last:border-0 group cursor-default"
                                 >
                                     <span className="text-[11px] font-bold text-white/15 tabular-nums mr-6 select-none">
                                         {String(i + 1).padStart(2, '0')}
@@ -350,10 +366,11 @@ export default function Home() {
                         })}
                     </div>
                 </div>
-            </section>
+                </section>
 
-            {/* Scroll animation spacer to hold `#why` in place for 200svh */}
-            <div ref={spacerRef} className="h-[200svh] w-full" />
+                {/* Scroll animation spacer to hold `#why` in place for 200svh on desktop */}
+                <div className="hidden md:block h-[200svh] w-full" />
+            </div>
 
             {/* ════════════════════════════════════════════════
                 03 · SERVICES — sticky layer z-20
@@ -361,8 +378,8 @@ export default function Home() {
             <section
                 id="services"
                 ref={servicesRef}
-                className="sticky z-20 bg-[#0a0a0f] rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_40px_rgba(0,0,0,0.4)]"
-                style={{ top: servicesHeight > 0 ? `min(0px, calc(100svh - ${servicesHeight}px))` : 'min(0px, calc(100svh - 100%))' }}
+                className="relative md:sticky z-20 bg-[#0a0a0f] rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_40px_rgba(0,0,0,0.4)] md:top-[var(--services-top)]"
+                style={{ '--services-top': servicesHeight > 0 ? `min(0px, calc(100svh - ${servicesHeight}px))` : 'min(0px, calc(100svh - 100%))' } as React.CSSProperties}
             >
                 {/* Ambient glow */}
                 <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-[#7370FF]/6 blur-[130px] rounded-full pointer-events-none" />
@@ -461,7 +478,7 @@ export default function Home() {
             ════════════════════════════════════════════════ */}
             <section
                 id="contact"
-                className="sticky top-0 z-50 min-h-[100svh] bg-zinc-950 rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_60px_rgba(0,0,0,0.7)] flex items-center justify-center"
+                className="relative md:sticky md:top-0 z-50 min-h-[100svh] bg-zinc-950 rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_60px_rgba(0,0,0,0.7)] flex items-center justify-center"
             >
                 {/* Large ambient glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#7370FF]/14 blur-[160px] rounded-full pointer-events-none" />
