@@ -329,13 +329,12 @@ export default function Home() {
             {/* ════════════════════════════════════════════════
                 02 · MANIFESTO — sticky layer z-10
             ════════════════════════════════════════════════ */}
-            <div ref={spacerRef} className="relative w-full">
-                <section
-                    id="why"
-                    ref={whyRef}
-                    className="relative md:sticky z-10 min-h-0 md:min-h-[100svh] bg-zinc-950 rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_40px_rgba(0,0,0,0.6)] flex items-center md:top-[var(--dynamic-top)]"
-                    style={{ '--dynamic-top': whyHeight > 0 ? `min(0px, calc(100svh - ${whyHeight}px))` : '0px' } as React.CSSProperties}
-                >
+            <section
+                id="why"
+                ref={whyRef}
+                className="relative md:sticky z-10 min-h-0 md:min-h-[100svh] bg-zinc-950 rounded-t-[2.5rem] overflow-hidden shadow-[0_-8px_40px_rgba(0,0,0,0.6)] flex items-center md:top-[var(--dynamic-top)]"
+                style={{ '--dynamic-top': whyHeight > 0 ? `min(0px, calc(100svh - ${whyHeight}px))` : '0px' } as React.CSSProperties}
+            >
                 {/* Ambient glow */}
                 <div className="hidden md:block absolute top-1/2 left-1/3 w-[600px] h-[400px] bg-[#7370FF]/10 blur-[150px] rounded-full pointer-events-none -translate-y-1/2" />
 
@@ -366,11 +365,10 @@ export default function Home() {
                         })}
                     </div>
                 </div>
-                </section>
+            </section>
 
-                {/* Scroll animation spacer to hold `#why` in place for 200svh on desktop */}
-                <div className="hidden md:block h-[200svh] w-full" />
-            </div>
+            {/* Scroll animation spacer to hold `#why` in place for 200svh on desktop */}
+            <div ref={spacerRef} className="hidden md:block h-[200svh] w-full" />
 
             {/* ════════════════════════════════════════════════
                 03 · SERVICES — sticky layer z-20
