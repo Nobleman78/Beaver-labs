@@ -23,7 +23,8 @@
       "Bash(do echo:*)",
       "Read(//d/Beaver Labs/beaverlabs-website/**)",
       "Bash(done)",
-      "Bash(grep -n \"^    \\);$\\\\|^}\" \"d:/Beaver Labs/beaverlabs-website/app/projects/page.tsx\")"
+      "Bash(grep -n \"^    \\);$\\\\|^}\" \"d:/Beaver Labs/beaverlabs-website/app/projects/page.tsx\")",
+      "Bash(npx tsc:*)"
     ]
   }
 }

@@ -48,7 +48,13 @@ const slideLeft = (delay = 0) => ({
     },
 });
 
-const RevealText = ({ text, progress, start, end }: { text: string, progress: MotionValue<number>, start: number, end: number }) => {
+/* Static version — no hooks, no JS overhead, used on mobile */
+const RevealTextStatic = ({ text }: { text: string }) => (
+    <span className="text-white/85 whitespace-pre-wrap">{text}</span>
+);
+
+/* Animated version — per-character color reveal driven by scroll progress */
+const RevealTextAnimated = ({ text, progress, start, end }: { text: string, progress: MotionValue<number>, start: number, end: number }) => {
     const chars = text.split("");
     const step = (end - start) / chars.length;
 
@@ -58,12 +64,11 @@ const RevealText = ({ text, progress, start, end }: { text: string, progress: Mo
                 const charStart = start + i * step;
                 const charEnd = start + (i + 1) * step;
                 const color = useTransform(progress, [charStart, charEnd], ["rgba(255, 255, 255, 0.85)", "#7370FF"]);
-
                 return (
                     <motion.span key={i} style={{ color }}>
                         {char}
                     </motion.span>
-                )
+                );
             })}
         </span>
     );
@@ -140,7 +145,13 @@ const servicesData = [
 export default function Home() {
 
     const scrollTo = (id: string) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const lenis = (window as any).__lenis;
+        if (lenis) {
+            lenis.scrollTo(`#${id}`, { duration: 1.2 });
+        } else {
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     const servicesRef = useRef<HTMLElement>(null);
@@ -358,7 +369,10 @@ export default function Home() {
                                         {String(i + 1).padStart(2, '0')}
                                     </span>
                                     <span className="text-[clamp(1.5rem,4vw,3.2rem)] font-bold leading-tight tracking-[-0.01em]">
-                                        <RevealText text={line.text} progress={whyScrollProgress} start={start} end={end} />
+                                        {isMobile
+                                            ? <RevealTextStatic text={line.text} />
+                                            : <RevealTextAnimated text={line.text} progress={whyScrollProgress} start={start} end={end} />
+                                        }
                                     </span>
                                 </div>
                             );
@@ -409,7 +423,7 @@ export default function Home() {
                                 viewport={{ once: true, margin: isMobile ? '50px' : '-40px' }}
                                 transition={{ duration: isMobile ? 0 : 0.6, delay: isMobile ? 0 : i * 0.08 }}
                                 className={cn(
-                                    'group relative flex flex-col p-8 md:p-10 rounded-[2rem] cursor-pointer border transition-all duration-500 hover:-translate-y-1 overflow-hidden min-h-[360px] cursor-default',
+                                    'group relative flex flex-col p-8 md:p-10 rounded-[2rem] border transition-[transform,border-color,background-color,box-shadow] duration-300 md:hover:-translate-y-1 overflow-hidden min-h-[360px] cursor-default',
                                     card.highlight
                                         ? 'bg-linear-to-b from-[#7370FF]/8 to-zinc-950/50 border-[#7370FF]/25 hover:border-[#7370FF]/50 hover:shadow-[0_8px_32px_rgba(115,112,255,0.15)]'
                                         : 'bg-white/2 border-white/6 hover:bg-white/4 hover:border-white/10',

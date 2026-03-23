@@ -1,17 +1,8 @@
 "use client";
 import { cn } from "@/lib/utils";
-import {
-  AnimatePresence,
-  MotionValue,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-
-import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
-
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 
 export const FloatingDock = ({
@@ -30,6 +21,22 @@ export const FloatingDock = ({
     </>
   );
 };
+
+function smoothScrollTo(href: string): boolean {
+  const hashMatch = href.match(/#(.+)$/);
+  if (!hashMatch) return false;
+  const id = hashMatch[1];
+  const el = document.getElementById(id);
+  if (!el) return false;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const lenis = (window as any).__lenis;
+  if (lenis) {
+    lenis.scrollTo(`#${id}`, { duration: 1.2 });
+  } else {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+  return true;
+}
 
 const FloatingDockMobile = ({
   items,
@@ -51,25 +58,21 @@ const FloatingDockMobile = ({
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: -10 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                exit={{
-                  opacity: 0,
-                  y: -10,
-                  transition: { delay: idx * 0.05 },
-                }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10, transition: { delay: idx * 0.05 } }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
                 <Link
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    if (smoothScrollTo(item.href)) e.preventDefault();
+                    setOpen(false);
+                  }}
                   className={cn(
-                    "flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300",
-                    item.isActive 
-                      ? "bg-[#7370FF]/25 shadow-[0_0_15px_rgba(115,112,255,0.4)] border border-[#7370FF]/40 text-white" 
-                      : "bg-white/5 border border-white/5 text-zinc-400 hover:text-white hover:bg-white/10"
+                    "flex h-10 w-10 items-center justify-center rounded-full transition-[background-color,border-color,box-shadow] duration-300",
+                    item.isActive
+                      ? "bg-[#7370FF]/25 shadow-[0_0_14px_rgba(115,112,255,0.45)] border border-[#7370FF]/40 text-white"
+                      : "bg-white/5 border border-white/8 text-zinc-400 hover:text-white hover:bg-white/12"
                   )}
                 >
                   <div className="h-5 w-5 flex items-center justify-center">{item.icon}</div>
@@ -81,9 +84,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-colors"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-colors"
       >
-        <IconLayoutNavbarCollapse className="h-6 w-6" />
+        <IconLayoutNavbarCollapse className="h-5 w-5" />
       </button>
     </div>
   );
@@ -96,110 +99,63 @@ const FloatingDockDesktop = ({
   items: { title: string; icon: React.ReactNode; href: string; isActive?: boolean }[];
   className?: string;
 }) => {
-  let mouseX = useMotionValue(Infinity);
   return (
-    <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
-      className={cn(
-        "hidden md:flex h-16 items-center gap-4 rounded-2xl px-4",
-        className,
-      )}
-    >
+    <div className={cn("hidden md:flex h-14 items-center gap-2 rounded-2xl px-2", className)}>
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        <IconContainer key={item.title} {...item} />
       ))}
-    </motion.div>
+    </div>
   );
 };
 
 function IconContainer({
-  mouseX,
   title,
   icon,
   href,
   isActive,
 }: {
-  mouseX: MotionValue;
   title: string;
   icon: React.ReactNode;
   href: string;
   isActive?: boolean;
 }) {
-  let ref = useRef<HTMLDivElement>(null);
-
-  let distance = useTransform(mouseX, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
-  });
-
-  // Adjust scaling values for navbar
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 70, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 70, 40]);
-
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 35, 20]);
-  let heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 35, 20]);
-
-  let width = useSpring(widthTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  let height = useSpring(heightTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
-  let widthIcon = useSpring(widthTransformIcon, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  let heightIcon = useSpring(heightTransformIcon, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Link href={href} scroll={true}>
-      <motion.div
-        ref={ref}
-        style={{ width, height }}
+    <Link
+      href={href}
+      onClick={(e) => {
+        if (smoothScrollTo(href)) e.preventDefault();
+      }}
+    >
+      <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className={cn(
-          "relative flex aspect-square items-center justify-center rounded-full transition-[background-color,border-color,box-shadow] duration-300",
+          "relative w-10 h-10 flex items-center justify-center rounded-full transition-[background-color,border-color,box-shadow] duration-300",
           isActive
-            ? "bg-[#7370FF]/25 shadow-[0_0_20px_rgba(115,112,255,0.6)] border border-[#7370FF]/50"
-            : "bg-white/10 dark:bg-white/10 hover:bg-white/20 dark:hover:bg-white/20 border border-white/5"
+            ? "bg-[#7370FF]/20 shadow-[0_0_14px_rgba(115,112,255,0.45)] border border-[#7370FF]/35 text-white"
+            : "bg-white/8 border border-white/8 hover:bg-white/15 hover:border-white/15 text-zinc-400 hover:text-white"
         )}
       >
+        {/* Tooltip */}
         <AnimatePresence>
           {hovered && (
             <motion.div
-              initial={{ opacity: 0, y: -10, x: "-50%" }}
+              initial={{ opacity: 0, y: -6, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: -2, x: "-50%" }}
-              className="absolute top-full mt-3 left-1/2 w-fit rounded-md border border-white/10 bg-zinc-900/90 backdrop-blur-md px-3 py-1.5 text-xs font-semibold whitespace-pre text-white shadow-xl z-50"
+              transition={{ duration: 0.15 }}
+              className="absolute top-full mt-2 left-1/2 w-fit rounded-md border border-white/10 bg-zinc-900/90 backdrop-blur-md px-2.5 py-1 text-[11px] font-semibold whitespace-pre text-white shadow-xl z-50"
             >
               {title}
             </motion.div>
           )}
         </AnimatePresence>
-        <motion.div
-          style={{ width: widthIcon, height: heightIcon }}
-          className={cn(
-            "flex items-center justify-center transition-colors duration-300",
-            isActive ? "text-white" : "text-zinc-400"
-          )}
-        >
+        <div className="w-5 h-5 flex items-center justify-center transition-colors duration-300">
           {icon}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </Link>
   );
 }
